@@ -1,6 +1,6 @@
-import {
+const {
   LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
-} from '../actions'
+} = require('./constants')
 
 // The auth reducer. The starting state sets authentication
 // based on a token being in local storage. In a real app,
@@ -38,4 +38,4 @@ function auth(state = {
   }
 }
 
-module.exports = auth
+export default auth
