@@ -1,9 +1,0 @@
-.layout {
-  padding-right: 10px !important;
-  /*padding-left: 10px !important;*/
-}
-
-.layout:last-child {
-  padding-left: 10px !important;
-  /*padding-right: 10px !important;*/
-}
