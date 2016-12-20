@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-
-import { Form, Icon, Input, Button } from 'antd'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd'
+import * as AuthActions from './actions'
 
 const FormItem = Form.Item
 
-class Login extends Component {
+export class Login extends Component {
 
 	constructor(props) {
 		super(props)
@@ -17,36 +19,65 @@ class Login extends Component {
 
     const { errorMessage } = this.props
 
+		const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
+    };
+
 		return (
-			<Form inline onSubmit={this.handleSubmit}>
-        <FormItem>
-          {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Please input your email!' }],
-          })(
-            <Input addonBefore={<Icon type="user" />} placeholder="Email" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
-        <FormItem>
-          <Button type="primary" htmlType="submit">Log in</Button>
-        </FormItem>
-      </Form>
+      <Row>
+        <Col span={12} offset={6}>
+          <Card title="后台登录" className="admin-login">
+						{ errorMessage &&
+							<p className="text-error">{errorMessage}</p>
+						}
+			      <Form onSubmit={this.handleSubmit} className="login-form">
+              <FormItem>
+                {getFieldDecorator('email', {
+                  rules: [{
+                    type: 'email', message: 'The input is not valid E-mail!',
+                  }, {
+                    required: true, message: 'Please input your E-mail!',
+                  }],
+                })(
+                  <Input addonBefore={<Icon type="user" />} placeholder="Email" />
+                )}
+              </FormItem>
+              <FormItem>
+                {getFieldDecorator('password', {
+                  rules: [{ required: true, message: 'Please input your Password!' }],
+                })(
+                  <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Password" />
+                )}
+              </FormItem>
+              <FormItem>
+                {getFieldDecorator('remember', {
+                  valuePropName: 'checked',
+                  initialValue: true,
+                })(
+                  <Checkbox>Remember me</Checkbox>
+                )}
+                <a className="login-form-forgot">Forgot password</a>
+                <Button type="primary" htmlType="submit" className="login-form-button">
+                  Log in
+                </Button>
+                Or <a>register now!</a>
+              </FormItem>
+            </Form>
+          </Card>
+        </Col>
+      </Row>
 		)
   }
 
 	handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
+      if (err) {
+        message.error(err)
+        return
       }
-			console.log(values)
+      this.props.authActions.loginUser(values)
     })
   }
 
@@ -56,4 +87,24 @@ Login.propTypes = {
   errorMessage: PropTypes.string
 }
 
-export default Form.create()(Login)
+function mapStateToProps(state) {
+  const {
+    auth: {
+      errorMessage
+    }
+  } = state
+
+  return {
+    errorMessage
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+    authActions: bindActionCreators(AuthActions, dispatch)
+  }
+}
+
+export const LoginPage = connect(mapStateToProps, mapDispatchToProps)(Login)
+
+export default Form.create()(LoginPage)

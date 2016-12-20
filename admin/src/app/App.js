@@ -29,8 +29,12 @@ App.propTypes = {
 // These props come from the application's
 // state when it is started
 function mapStateToProps(state) {
-  const { auth } = state
-  const { isAuthenticated, errorMessage } = auth
+  const {
+    auth: {
+      isAuthenticated,
+      errorMessage
+    }
+  } = state
 
   return {
     isAuthenticated,

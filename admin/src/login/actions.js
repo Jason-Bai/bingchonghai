@@ -6,63 +6,51 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAILURE
 } from './constants'
-
+import { browserHistory } from 'react-router'
+import { login } from '../lib/httpClient'
 
 function requestLogin(creds) {
-    return {
-          type: LOGIN_REQUEST,
-          isFetching: true,
-          isAuthenticated: false,
-          creds
-        }
+  return {
+    type: LOGIN_REQUEST,
+    isFetching: true,
+    isAuthenticated: false,
+    creds
+  }
 }
 
 function receiveLogin(user) {
-    return {
-          type: LOGIN_SUCCESS,
-          isFetching: false,
-          isAuthenticated: true,
-          id_token: user.id_token
-        }
+  return {
+    type: LOGIN_SUCCESS,
+    isFetching: false,
+    isAuthenticated: true,
+    user
+  }
 }
 
 function loginError(message) {
-    return {
-          type: LOGIN_FAILURE,
-          isFetching: false,
-          isAuthenticated: false,
-          message
-        }
+  return {
+    type: LOGIN_FAILURE,
+    isFetching: false,
+    isAuthenticated: false,
+    message
+  }
 }
 
 export function loginUser(creds) {
-
-  let config = {
-    method: 'POST',
-    headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-    body: `username=${creds.username}&password=${creds.password}`
-  }
-
   return dispatch => {
-    // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
-
-    return fetch('http://localhost:3001/sessions/create', config)
-      .then(response =>
-        response.json().then(user => ({ user, response }))
-            ).then(({ user, response }) =>  {
-        if (!response.ok) {
-          // If there was a problem, we want to
-          // dispatch the error condition
-          dispatch(loginError(user.message))
-          return Promise.reject(user)
-        } else {
-          // If login was successful, set the token in local storage
-          localStorage.setItem('id_token', user.id_token)
-          // Dispatch the success action
-          dispatch(receiveLogin(user))
-        }
-      }).catch(err => console.log("Error: ", err))
+    return login(creds).then(response => {
+      if (!response || !response.data) {
+        dispatch(loginError(response.data.message))
+        return Promise.reject(response.data)
+      } else {
+        localStorage.setItem('x_access_token', response.data.auth.token)
+        localStorage.setItem('refresh_token', response.data.auth.refreshToken)
+        localStorage.setItem('expiredAt', response.data.auth.expiredAt)
+        dispatch(receiveLogin(response.data))
+        browserHistory.push('/')
+      }
+    }).catch(err => console.log("Error: ", err))
   }
 }
 
@@ -90,5 +78,3 @@ export function logoutUser() {
     dispatch(receiveLogout())
   }
 }
-
-export default { loginUser, logoutUser }

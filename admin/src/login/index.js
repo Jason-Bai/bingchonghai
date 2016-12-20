@@ -1,6 +1,6 @@
 import authConstants from './constants'
 
-const auth = require('./reducer')
+const auth = require('./reducer').default
 
 const authActions = require('./actions').default
 

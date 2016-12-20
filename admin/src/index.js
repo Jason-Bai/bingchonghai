@@ -1,3 +1,5 @@
+import 'antd/dist/antd.css'
+import './global.css'
 import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory } from 'react-router'

@@ -1,0 +1,6 @@
+.admin-login .login-form, .admin-login .login-form-button {
+  width: 100%;
+}
+.admin-login .login-form-forgot {
+  float: right;
+}

@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "antd": "^2.5.2",
+    "axios": "^0.15.3",
     "babel-plugin-import": "^1.1.0",
-    "bootstrap": "^3.3.7",
     "humps": "^1.1.0",
     "lodash": "^4.16.1",
     "normalizr": "^2.2.1",
