@@ -1,6 +1,6 @@
-var U = require('../../build/app/lib/utils').default;
+const U = require('../../app/lib/utils');
 
-var cases = [{
+module.exports = [{
   name: '管理员添加一个一级分类',
   uri: '/categorys',
   verb: 'post',
@@ -249,5 +249,3 @@ var cases = [{
     JSONLength: 7
   }
 }];
-
-module.exports = cases;

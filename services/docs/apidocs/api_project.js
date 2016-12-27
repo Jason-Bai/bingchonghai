@@ -1,1 +1,0 @@
-define({  "name": "open-rest-boilerplate-api-docs",  "description": "Documents of API v1",  "title": "API documents of open-rest boilerplate",  "version": "1.0.0",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-12-15T12:32:24.693Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});

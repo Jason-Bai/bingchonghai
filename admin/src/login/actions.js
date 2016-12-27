@@ -48,7 +48,7 @@ export function loginUser(creds) {
         localStorage.setItem('refresh_token', response.data.auth.refreshToken)
         localStorage.setItem('expiredAt', response.data.auth.expiredAt)
         dispatch(receiveLogin(response.data))
-        browserHistory.push('/')
+        browserHistory.push('/admin')
       }
     }).catch(err => console.log("Error: ", err))
   }

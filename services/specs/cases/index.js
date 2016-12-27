@@ -1,15 +1,11 @@
-var _ = require('lodash');
+const _ = require('lodash');
+const home = require('./home');
+const session = require('./session');
+const user = require('./user');
+const category = require('./category');
 
 module.exports = _.flatten([
-  require('./home'),
-
-  // 用户认证、登陆相关所有接口
-  require('./session'),
-
-  // 用户相关接口测试用例
-  require('./user'),
-
-  // 分类相关接口测试用例
-  require('./category')
-
+  home,
+  session,
+  user,
 ]);

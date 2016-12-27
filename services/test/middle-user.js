@@ -1,35 +1,32 @@
-var assert    = require('assert')
-  , rest      = require('open-rest')
-  , U         = require('../build/app/lib/utils').default
-  , middle    = require('../build/app/middle-wares/user').default;
+const assert = require('assert');
+const U = require('../app/lib/utils');
+const middle = require('../app/middle-wares/user');
 
-describe('middle user', function() {
-
-  describe('#noraml', function() {
-
-    it('req.privateSwitchs undefined', function(done) {
-      var req = {
+describe('middle user', () => {
+  describe('#noraml', () => {
+    it('req.privateSwitchs undefined', (done) => {
+      const req = {
         headers: {
-          'x-auth-token': undefined
+          'x-auth-token': undefined,
         },
         connection: {
-          remoteAddress: '192.168.199.188'
+          remoteAddress: '192.168.199.188',
         },
         privateSwitchs: undefined,
         params: {},
         method: 'GET',
         route: {
-          path: '/users/:id'
-        }
+          path: '/users/:id',
+        },
       };
 
-      var res = {};
+      const res = {};
 
-      var allowGuestAccessPaths = [
-        'GET /users'
+      const allowGuestAccessPaths = [
+        'GET /users',
       ];
 
-      middle(allowGuestAccessPaths)(req, res, function(error) {
+      middle(new Set(allowGuestAccessPaths))(req, res, (error) => {
         assert.ok(error);
         assert.ok(error instanceof Error);
         assert.deepEqual({
@@ -38,51 +35,45 @@ describe('middle user', function() {
           restCode: 'NotAuthorized',
           body: {
             code: 'NotAuthorized',
-            message: 'Not authorized error.'
-          }
+            message: 'Not authorized error.',
+          },
         }, U._.pick(error, ['message', 'statusCode', 'body', 'restCode']));
 
         done();
       });
-
     });
 
-    it('req.privateSwitchs defined', function(done) {
-      var req = {
+    it('req.privateSwitchs defined', (done) => {
+      const req = {
         headers: {
-          'x-auth-token': undefined
+          'x-auth-token': undefined,
         },
         connection: {
-          remoteAddress: '192.168.199.188'
+          remoteAddress: '192.168.199.188',
         },
         privateSwitchs: ['users'],
         params: {},
         method: 'GET',
         route: {
-          path: '/users/:id'
-        }
+          path: '/users/:id',
+        },
       };
 
-      var res = {};
+      const res = {};
 
-      var allowGuestAccessPaths = [
-        'GET /users'
+      const allowGuestAccessPaths = [
+        'GET /users',
       ];
 
-      middle(allowGuestAccessPaths)(req, res, function(error) {
+      middle(new Set(allowGuestAccessPaths))(req, res, (error) => {
         assert.equal(null, error);
         assert.deepEqual({
           id: 0,
-          name: 'Private client'
+          name: 'Private client',
         }, req.user);
 
         done();
       });
-
     });
-
   });
-
 });
-
-

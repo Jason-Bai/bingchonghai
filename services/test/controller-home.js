@@ -1,63 +1,57 @@
-var assert    = require('assert')
-  , rest      = require('open-rest')
-  , U         = require('../build/app/lib/utils')
-  , home      = require('../build/app/controllers/home');
+const assert = require('assert');
+const home = require('../app/controllers/home');
 
-describe('controllers home', function() {
-
-  describe('#index', function() {
-
-    it('req.username', function(done) {
-      var req = {
+describe('controllers home', () => {
+  describe('#index', () => {
+    it('req.username', (done) => {
+      const req = {
         user: {
           id: 1,
-          username: 'Redstone Zhao'
+          username: 'Redstone Zhao',
         },
         _clientIp: '192.168.199.188',
         _realIp: '192.168.199.199',
         _remoteIp: '127.0.0.1',
-        privateSwitchs: '*'
+        privateSwitchs: '*',
       };
-      var res = {
-        send: function(data) {
+      const res = {
+        send: (data) => {
           assert.deepEqual([
-            'GET /users'
+            'GET /users',
           ], data[1]);
-        }
+        },
       };
-      home.index(req, res, function(error) {
+      home.index(req, res, (error) => {
         assert.equal(null, error);
 
         done();
       });
     });
 
-    it('Guest', function(done) {
-      var req = {
+    it('Guest', (done) => {
+      const req = {
         user: {
-          id: 0
+          id: 0,
         },
         _clientIp: '192.168.199.188',
         _realIp: '192.168.199.199',
         _remoteIp: '127.0.0.1',
         privateSwitchs: [
-          'users'
-        ]
+          'users',
+        ],
       };
-      var res = {
-        send: function(data) {
+      const res = {
+        send: (data) => {
           assert.deepEqual([
-            'GET /users'
+            'GET /users',
           ], data[1]);
-        }
+        },
       };
-      home.index(req, res, function(error) {
+      home.index(req, res, (error) => {
         assert.equal(null, error);
 
         done();
       });
     });
-
   });
-
 });

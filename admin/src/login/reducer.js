@@ -7,7 +7,8 @@ const {
 // we would also want a util to check if the token is expired.
 function auth(state = {
     isFetching: false,
-    isAuthenticated: localStorage.getItem('x_access_token') ? true : false
+    isAuthenticated: localStorage.getItem('x_access_token') ? true : false,
+    errorMessage: ''
   }, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
