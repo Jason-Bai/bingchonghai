@@ -52,7 +52,7 @@ class Header extends Component {
                         </Link>
 										  </MenuItem>
 										  <MenuItem key="logout">
-                        <Link>
+                        <Link to="/logout">
 										  	  <Icon type="logout" />退出
                         </Link>
 										  </MenuItem>
