@@ -1,10 +1,13 @@
 import { routerReducer as routing } from 'react-router-redux'
 import { combineReducers } from 'redux'
 
-const { auth } = require('./login').default
+import { auth } from '../session/redux/reducers'
+
+const users = require('../user/redux/reducers').default
 
 const rootReducer = combineReducers({
   auth,
+  users,
   routing
 })
 

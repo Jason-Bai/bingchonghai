@@ -1,16 +1,18 @@
 import 'antd/dist/antd.css'
-import './global.css'
+import './app/app.css'
 import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import Root from './app/Root'
-import configureStore from './store/configureStore'
+import configureStore from './app/configureStore'
 
 const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
+const rootElement = document.getElementById('root')
+
 render(
   <Root store={store} history={history} />,
-  document.getElementById('root')
+  rootElement
 )

@@ -7,7 +7,7 @@ import {
   LOGOUT_FAILURE
 } from './constants'
 import { browserHistory } from 'react-router'
-import { login } from '../lib/httpClient'
+import { login } from '../../utils/httpClient'
 
 function requestLogin(creds) {
   return {

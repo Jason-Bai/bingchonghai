@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd'
-import * as AuthActions from './actions'
+import { AuthActions } from './redux/actions'
 
 const FormItem = Form.Item
 

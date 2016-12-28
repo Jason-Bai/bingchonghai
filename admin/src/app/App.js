@@ -2,14 +2,15 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import Header from './Header'
-import Sidebar from './Sidebar'
 
 class App extends Component {
 
   componentWillMount() {
+    /*
     if (!this.props.auth.isAuthenticated) {
       return browserHistory.push('/login')
     }
+    */
   }
 
   render() {

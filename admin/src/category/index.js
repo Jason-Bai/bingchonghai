@@ -1,6 +1,6 @@
 import CategoryList from './CategoryList'
 
-const Category= {
+const Category = {
   CategoryList
 }
 
