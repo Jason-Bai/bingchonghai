@@ -1,8 +1,4 @@
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import * as CategoryActions from './actions'
-
-export function Category({name, description}) {
+function Category({name, description}) {
   return (
     <div>
       <h1>{name}</h1>
@@ -11,14 +7,4 @@ export function Category({name, description}) {
   )
 }
 
-function mapStateToProps(state) {
-  return {...state}
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    ...CategoryActions
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Category)
+export default Category;

@@ -1,21 +1,19 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
-import Header from './Header'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+import Header from './Header';
 
 class App extends Component {
 
   componentWillMount() {
-    /*
     if (!this.props.auth.isAuthenticated) {
-      return browserHistory.push('/login')
+      return browserHistory.push('/')
     }
-    */
   }
 
   render() {
-    const { dispatch, auth } = this.props
-    const { isAuthenticated, errorMessage } = auth
+    const { dispatch, auth } = this.props;
+    const { isAuthenticated, errorMessage } = auth;
     return (
       <div>
         <Header
@@ -45,7 +43,7 @@ function mapStateToProps(state) {
   return {
     auth,
     routing
-  }
+  };
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(App);

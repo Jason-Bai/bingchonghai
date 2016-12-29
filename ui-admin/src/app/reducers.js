@@ -1,9 +1,9 @@
-import { routerReducer as routing } from 'react-router-redux'
-import { combineReducers } from 'redux'
+import { routerReducer as routing } from 'react-router-redux';
+import { combineReducers } from 'redux';
 
-import { auth } from '../session/redux/reducers'
+import { auth } from '../session/redux/reducers';
 
-const users = require('../user/redux/reducers').default
+import users from '../user/redux/reducers';
 
 const rootReducer = combineReducers({
   auth,

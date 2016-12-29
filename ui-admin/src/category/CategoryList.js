@@ -6,4 +6,4 @@ export default class UserList extends Component {
       <div>category list</div>
     )
   }
-}
+};

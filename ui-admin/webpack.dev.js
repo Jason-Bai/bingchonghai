@@ -21,6 +21,15 @@ module.exports = {
     filename: '[name].js'
   },
   module: {
+    /*
+    preLoaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+    ],
+    */
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
@@ -34,6 +43,11 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['node_modules']
   },
+  /*
+  eslint: {
+    configFile: './.eslintrc.json'
+  },
+  */
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

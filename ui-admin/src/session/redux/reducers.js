@@ -1,1 +1,1 @@
-export const auth = require('./authReducer').default
+export const auth = require('./authReducer').default;

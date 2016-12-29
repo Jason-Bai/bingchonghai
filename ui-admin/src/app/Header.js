@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
-import { connect } from 'react-redux'
-import { Row, Col, Menu, Icon } from 'antd'
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { Row, Col, Menu, Icon } from 'antd';
 
-const MenuItem = Menu.Item
-const SubMenu = Menu.SubMenu
-const MenuItemGroup = Menu.ItemGroup
+const MenuItem = Menu.Item;
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 class Header extends Component {
 
@@ -14,11 +14,11 @@ class Header extends Component {
   }
 
 	handleClick(v) {
-		console.log(v)
+		console.log(v);
 	}
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn } = this.props;
  		return (
       <header id="header">
         <Row>
@@ -76,4 +76,4 @@ Header.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-export default connect()(Header)
+export default connect()(Header);

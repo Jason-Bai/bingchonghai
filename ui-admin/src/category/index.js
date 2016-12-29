@@ -1,7 +1,7 @@
-import CategoryList from './CategoryList'
+import CategoryList from './CategoryList';
 
 const Category = {
   CategoryList
-}
+};
 
-export default Category
+export default Category;

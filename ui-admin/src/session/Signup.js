@@ -1,22 +1,22 @@
-import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd'
+import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd';
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 export class Signup extends Component {
 
 	constructor(props) {
-		super(props)
-		this.handleSubmit = this.handleSubmit.bind(this)
+		super(props);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
   render() {
 
-    const { getFieldDecorator } = this.props.form
+    const { getFieldDecorator } = this.props.form;
 
-    const { errorMessage } = this.props
+    const { errorMessage } = this.props;
 
 		const formItemLayout = {
       labelCol: { span: 6 },
@@ -73,10 +73,9 @@ export class Signup extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (err) {
-        message.error(err)
         return
       }
-      console.log(values)
+      console.log(values);
     })
   }
 
@@ -91,19 +90,19 @@ function mapStateToProps(state) {
     auth: {
       errorMessage
     }
-  } = state
+  } = state;
 
   return {
     errorMessage
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
     dispatch
-  }
+  };
 }
 
-export const SignupPage = connect(mapStateToProps, mapDispatchToProps)(Signup)
+export const SignupPage = connect(mapStateToProps, mapDispatchToProps)(Signup);
 
-export default Form.create()(SignupPage)
+export default Form.create()(SignupPage);

@@ -1,1 +1,1 @@
-export const AuthActions = require('./authActions')
+export const AuthActions = require('./authActions');

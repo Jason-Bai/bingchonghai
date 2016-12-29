@@ -1,6 +1,6 @@
 const {
   FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAILURE
-} = require('./constants')
+} = require('./constants');
 
 function users(state = {
     isFetching: false,
@@ -25,4 +25,4 @@ function users(state = {
   }
 }
 
-export default users
+export default users;
