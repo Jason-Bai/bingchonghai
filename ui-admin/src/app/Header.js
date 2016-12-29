@@ -10,7 +10,7 @@ const MenuItemGroup = Menu.ItemGroup
 class Header extends Component {
 
 	state = {
-  	current: 'team',
+  	current: 'home'
   }
 
 	handleClick(v) {
@@ -35,6 +35,11 @@ class Header extends Component {
 									onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
                   mode="horizontal">
+										<MenuItem key="home">
+                      <Link to="/admin">
+											  <Icon type="home" />首页
+                      </Link>
+										</MenuItem>
 										<MenuItem key="team">
                       <Link to="/admin/users">
 											  <Icon type="team" />用户管理
