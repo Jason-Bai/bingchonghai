@@ -6,22 +6,28 @@ function users(state = {
     isFetching: false,
     list: [],
     count: 0,
+    message: '',
   }, action) {
   switch (action.type) {
     case FETCH_USER_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true
-      })
+        isFetching: true,
+        list: action.payload.list,
+        count: action.payload.count,
+      });
     case FETCH_USER_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        list: action.data,
-        count: action.data.length
-      })
+        list: action.payload.list,
+        count: action.payload.count,
+      });
     case FETCH_USER_FAILURE:
-      return state
+      return Object.assign({}, state, {
+        isFetching: false,
+        message: action.payload.message,
+      });
     default:
-      return state
+      return state;
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from './Header';
+import ContentWrapper from './ContentWrapper';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ class App extends Component {
         <Header
           loggedIn={!!auth.isAuthenticated}
           router={this.context.router}/>
-        {this.props.children}
+        <ContentWrapper {...this.props} />
       </div>
     )
   }

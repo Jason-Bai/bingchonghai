@@ -14,7 +14,7 @@ const instanceWithToken = axios.create({
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',
-    'X-Auth-Token': localStorage.getItem('id_token')
+    'X-Auth-Token': localStorage.getItem('x_access_token')
   }
 });
 
@@ -23,4 +23,14 @@ export function login({ email, password }) {
     email,
     password
   })
+};
+
+export const userHttp = {
+  list: (params) => {
+    const config = {
+      timeout: 5000,
+      params
+    }
+    return instanceWithToken.get('/users', config);
+  }
 };

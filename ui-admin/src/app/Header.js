@@ -9,12 +9,19 @@ const MenuItemGroup = Menu.ItemGroup;
 
 class Header extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
 	state = {
   	current: 'home'
   }
 
-	handleClick(v) {
-		console.log(v);
+	handleClick(e) {
+    this.setState({
+      current: e.key
+    })
 	}
 
   render() {
