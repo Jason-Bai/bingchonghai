@@ -1,0 +1,16 @@
+{
+  "name": "deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shipitfile.js",
+  "scripts": {
+    "deploy": "shipit aliyun deploy",
+    "rollback": "shipit aliyun rollback"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "shipit-deploy": "^2.4.0"
+  }
+}
