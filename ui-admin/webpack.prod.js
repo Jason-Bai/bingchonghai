@@ -43,9 +43,6 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     modulesDirectories: ['node_modules']
   },
-  resolveLoader: {
-    root: path.resolve(__dirname, 'node_modules')
-  },
   /*
   eslint: {
     configFile: './.eslintrc.json'
@@ -58,12 +55,16 @@ module.exports = {
       _: 'expose?_!lodash',
       moment: 'expose?moment!moment'
     }),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new ExtractTextPlugin("css/[name].css"),
-    new webpack.ResolverPlugin([
-      new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("package.json", ["main"]),
-    ]),
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false,
+        },
+        output: {
+            comments: false,
+        },
+    }),
   ]
 };

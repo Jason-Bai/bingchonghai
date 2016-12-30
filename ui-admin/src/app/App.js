@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from './Header';
 import ContentWrapper from './ContentWrapper';
+import Footer from './Footer';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
           loggedIn={!!auth.isAuthenticated}
           router={this.context.router}/>
         <ContentWrapper {...this.props} />
+        <Footer />
       </div>
     )
   }
