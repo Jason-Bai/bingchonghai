@@ -16,7 +16,7 @@ module.exports = function(shipit) {
       'npm install',
       'cp ~/config.production.js ' + shipit.config.deployTo + '/current/services/app/configs',
       'npm run _init',
-      'webmode=production node index.js'
+      'NODE_ENV=production node index.js'
     ]
 
     // 执行命令
