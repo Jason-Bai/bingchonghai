@@ -12,11 +12,15 @@ module.exports = function(shipit) {
     const cmds = [
       'cd ' + shipit.config.deployTo + '/current/services/',
       'nvm use ' + config.services.node.version,
-      'npm install'
+      'npm install pm2 -g',
+      'npm install',
+      'cp ~/config.production.js ' + shipit.config.deployTo + '/current/services/app/configs',
+      'npm run _init',
+      'node index.js'
     ]
 
     // 执行命令
-    return shipit.remote(cmds.join(' & '));
+    return shipit.remote(cmds.join(' && '));
   }
 
 }
