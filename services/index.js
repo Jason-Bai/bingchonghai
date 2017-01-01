@@ -18,5 +18,5 @@ require('open-rest-helper-params')(U.rest);
 
 U.rest(`${__dirname}/app`, (error) => {
   if (error) throw Error;
-  console.log('service startedAt: %s', new Date());
+  console.log('service listening on % port startedAt: %s', config.service.port, new Date());
 });
