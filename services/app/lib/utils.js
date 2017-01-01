@@ -18,6 +18,7 @@ U.path = require('path');
 U.fs = require('fs');
 U.openRestAccessLog = require('open-rest-access-log');
 U.onFinished = require('on-finished');
+U.bunyan = require('bunyan');
 
 if (U.rest.Sequelize) {
   U.rest.Sequelize.type = (paths, len) => {
