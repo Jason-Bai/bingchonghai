@@ -16,7 +16,7 @@ module.exports = function(shipit) {
       'npm install',
       'cp ~/config.production.js ' + shipit.config.deployTo + '/current/services/app/configs',
       'npm run _init',
-      'pm2 delete bch-api'
+      'pm2 delete bch-api',
       'NODE_ENV=production pm2 start index.js --name bch-api -i 0'
     ]
 
