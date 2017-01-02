@@ -14,7 +14,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
   },
-  debug: true,
+  debug: false,
   devtool: 'source-map',
   noInfo: true, // set to false to see a list of every file being bundled.
   entry: {
@@ -60,8 +60,7 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
-      },
-      inject: true
+      }
     }),
 
     // Eliminate duplicate packages when generating bundle
