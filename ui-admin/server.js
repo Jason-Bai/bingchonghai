@@ -13,7 +13,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output
 app.use(webpackHotMiddleware(compiler))
 
 app.get("/*", function(req, res) {
-  res.sendFile(__dirname + '/public/index.html')
+  res.sendFile(__dirname + '/src/index.html')
 })
 
 app.listen(port, function(error) {
