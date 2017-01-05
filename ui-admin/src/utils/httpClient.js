@@ -36,11 +36,14 @@ export function logout() {
 };
 
 export const userHttp = {
-  list: (params) => {
+  query: (params) => {
     const config = {
       timeout: 5000,
       params
     }
     return instanceWithToken().get('/users', config);
+  },
+  create: (data = {}) => {
+    return instanceWithToken().post('/users', data);
   }
 };

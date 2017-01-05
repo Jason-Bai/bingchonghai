@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Table, Card, Breadcrumb, Row, Col } from 'antd';
+import {
+  Table, Card, Breadcrumb, Row,
+  Col, Form, Input, Icon,
+  Select, message
+} from 'antd';
+
+import { ActionBar } from '../components'
+
 import * as UserActions from './redux/actions';
 
+const FormItem = Form.Item;
+const Option = Select.Option;
+
 class UserList extends Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   state = {
     current: 1,
@@ -46,7 +60,83 @@ class UserList extends Component {
     key: 'status'
   }]
 
+  handleCreate = (err, values) => {
+    if (err) {
+      const errMsg = "Error: " + err;
+      message.error(errMsg);
+      return
+    }
+    return this.props.userActions.create(values)
+  }
+
+  actionBarConfig = {
+    add: {
+      modalTitle: '创建用户',
+      okText: '创建',
+      buttonText: '新建',
+      formItems: this.formItems,
+      handleCreate: this.handleCreate
+    }
+  }
+
+
+  formItems(form) {
+
+    const { getFieldDecorator } = form, formItemLayout = {
+      labelCol: { span: 5 },
+      wrapperCol: { span: 19 },
+    };
+
+    return (
+      <div className="form-items">
+        <FormItem
+          {...formItemLayout}
+          label="Name: "
+          hasFeedback
+        >
+          {getFieldDecorator('name', {
+            rules: [{
+              required: true, min: 2, max: 30, message: 'Please input your name!',
+            }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="E-mail: "
+          hasFeedback
+        >
+          {getFieldDecorator('email', {
+            rules: [{
+              type: 'email', message: 'The input is not valid E-mail!',
+            }, {
+              required: true, message: 'Please input your E-mail!',
+            }],
+          })(
+            <Input />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="Password: "
+          hasFeedback
+        >
+          {getFieldDecorator('password', {
+            rules: [{
+              required: true, min: 8, max: 20, message: 'Please input your password!'
+            }],
+          })(
+            <Input type="password" />
+          )}
+        </FormItem>
+      </div>
+    )
+
+  }
+
   render() {
+
     return (
       <div>
         <Row>
@@ -57,6 +147,7 @@ class UserList extends Component {
             </Breadcrumb>
           </Col>
         </Row>
+        <ActionBar {...this.actionBarConfig} />
         <Table
           dataSource={this.props.users.list}
           columns={this.columns}
