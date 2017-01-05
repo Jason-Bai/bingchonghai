@@ -9,14 +9,20 @@ const instanceWithoutToken = axios.create({
   }
 });
 
-const instanceWithToken = axios.create({
-  baseURL: `${config.apiRoot}`,
-  timeout: 1000,
-  headers: {
-    'Content-Type': 'application/json',
-    'X-Auth-Token': localStorage.getItem('x_access_token')
-  }
-});
+function instanceWithToken() {
+
+  const access_token = localStorage.getItem('x_access_token');
+
+  return axios.create({
+    baseURL: `${config.apiRoot}`,
+    timeout: 1000,
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Auth-Token': access_token
+    }
+  });
+
+}
 
 export function login({ email, password }) {
   return instanceWithoutToken.post('/session', {
@@ -25,12 +31,16 @@ export function login({ email, password }) {
   })
 };
 
+export function logout() {
+  return instanceWithToken().delete('/session')
+};
+
 export const userHttp = {
   list: (params) => {
     const config = {
       timeout: 5000,
       params
     }
-    return instanceWithToken.get('/users', config);
+    return instanceWithToken().get('/users', config);
   }
 };

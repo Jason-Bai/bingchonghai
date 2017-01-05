@@ -1,5 +1,6 @@
 const {
-  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
+  LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE
 } = require('./constants')
 
 // The auth reducer. The starting state sets authentication
@@ -30,10 +31,21 @@ function auth(state = {
         isAuthenticated: false,
         errorMessage: action.message
       })
-    case LOGOUT_SUCCESS:
+    case LOGOUT_REQUEST:
       return Object.assign({}, state, {
         isFetching: true,
+        isAuthenticated: true
+      });
+    case LOGOUT_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
         isAuthenticated: false
+      })
+    case LOGOUT_FAILURE:
+      return Object.assign({}, state, {
+        isFetching: false,
+        isAuthenticated: true,
+        errorMessage: action.message
       })
     default:
       return state

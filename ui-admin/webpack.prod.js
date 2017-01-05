@@ -48,7 +48,7 @@ module.exports = {
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
       filename: '../index.html',
-      template: 'src/index.html',
+      template: 'index.template.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

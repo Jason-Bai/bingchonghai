@@ -1,5 +1,5 @@
 import { browserHistory } from 'react-router';
-import { login } from '../../utils/httpClient';
+import { login, logout } from '../../utils/httpClient';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -71,10 +71,27 @@ function receiveLogout() {
 }
 
 // Logs the user out
+function logoutError(message) {
+  return {
+    type: LOGIN_FAILURE,
+    isFetching: false,
+    isAuthenticated: false,
+    message,
+  };
+}
+
 export function logoutUser() {
   return dispatch => {
     dispatch(requestLogout());
-    localStorage.removeItem('x_access_token');
-    dispatch(receiveLogout());
+    return logout().then(response => {
+      if (!response || !response.data) {
+        dispatch(logoutError(response.data.message));
+        browserHistory.push('/');
+      } else {
+        localStorage.clear();
+        dispatch(receiveLogout());
+        browserHistory.push('/');
+      }
+    })
   }
 }
