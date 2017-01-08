@@ -94,6 +94,7 @@ class UserList extends Component {
     title: '操作',
     dataIndex: 'operations',
     key: 'operations',
+    className: 'text-center',
     render: (text, record) => {
       const context = {userId: record.id, userActions: this.props.userActions}
       return (

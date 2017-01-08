@@ -35,21 +35,30 @@ export function logout() {
   return instanceWithToken().delete('/session')
 };
 
-export const userHttp = {
-  query: (params) => {
-    const config = {
-      timeout: 5000,
-      params
+export function profile() {
+  return instanceWithToken().get('/session')
+}
+
+function crud(endpoint) {
+  return {
+    query: (params) => {
+      const config = {
+        timeout: 5000,
+        params
+      }
+      return instanceWithToken().get(`/${endpoint}`, config);
+    },
+    create: (data = {}) => {
+      return instanceWithToken().post(`/${endpoint}`, data);
+    },
+    modify: (data = {}, params = {}) => {
+      return instanceWithToken().patch(`/${endpoint}/${params.id}`, data);
+    },
+    remove: (params) => {
+      return instanceWithToken().delete(`/${endpoint}/${params.id}`);
     }
-    return instanceWithToken().get('/users', config);
-  },
-  create: (data = {}) => {
-    return instanceWithToken().post('/users', data);
-  },
-  modify: (data = {}, params = {}) => {
-    return instanceWithToken().patch(`/users/${params.id}`, data);
-  },
-  remove: (params) => {
-    return instanceWithToken().delete(`/users/${params.id}`);
-  }
+  };
+
 };
+export const userHttp = crud('users');
+export const categoryHttp = crud('categorys');

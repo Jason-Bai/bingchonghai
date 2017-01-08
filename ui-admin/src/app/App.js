@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import { bindActionCreators } from 'redux';
 import Header from './Header';
 import ContentWrapper from './ContentWrapper';
 import Footer from './Footer';
+import { SessionActions } from '../session/redux/actions';
 
 class App extends Component {
 
@@ -11,6 +13,7 @@ class App extends Component {
     if (!this.props.auth.isAuthenticated) {
       return browserHistory.push('/')
     }
+		this.props.sessionActions.fetchProfile()
   }
 
   render() {
@@ -20,7 +23,8 @@ class App extends Component {
       <div>
         <Header
           loggedIn={!!auth.isAuthenticated}
-          router={this.context.router}/>
+          router={this.context.router}
+          session={this.props.session}/>
         <ContentWrapper {...this.props} />
         <Footer />
       </div>
@@ -40,13 +44,22 @@ App.propTypes = {
 function mapStateToProps(state) {
   const {
     auth,
+    session,
     routing
   } = state
 
   return {
     auth,
+    session,
     routing
   };
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    sessionActions: bindActionCreators(SessionActions, dispatch),
+    dispatch
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

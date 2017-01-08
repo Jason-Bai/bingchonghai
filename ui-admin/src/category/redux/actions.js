@@ -1,22 +1,22 @@
-import { userHttp } from '../../utils/httpClient';
+import { categoryHttp } from '../../utils/httpClient';
 import {
-  FETCH_USER_REQUEST,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_FAILURE,
-  ADD_USER_REQUEST,
-  ADD_USER_SUCCESS,
-  ADD_USER_FAILURE,
-  MODIFY_USER_REQUEST,
-  MODIFY_USER_SUCCESS,
-  MODIFY_USER_FAILURE,
-  REMOVE_USER_REQUEST,
-  REMOVE_USER_SUCCESS,
-  REMOVE_USER_FAILURE
+  FETCH_CATEGORY_REQUEST,
+  FETCH_CATEGORY_SUCCESS,
+  FETCH_CATEGORY_FAILURE,
+  ADD_CATEGORY_REQUEST,
+  ADD_CATEGORY_SUCCESS,
+  ADD_CATEGORY_FAILURE,
+  MODIFY_CATEGORY_REQUEST,
+  MODIFY_CATEGORY_SUCCESS,
+  MODIFY_CATEGORY_FAILURE,
+  REMOVE_CATEGORY_REQUEST,
+  REMOVE_CATEGORY_SUCCESS,
+  REMOVE_CATEGORY_FAILURE
 } from './constants';
 
-function requestUsers() {
+function requestCategorys() {
   return {
-    type: FETCH_USER_REQUEST,
+    type: FETCH_CATEGORY_REQUEST,
     payload: {
       list: [],
       count: 0,
@@ -24,9 +24,9 @@ function requestUsers() {
   };
 }
 
-function receiveUsersSuccess(response) {
+function receiveCategorysSuccess(response) {
   return {
-    type: FETCH_USER_SUCCESS,
+    type: FETCH_CATEGORY_SUCCESS,
     payload: {
       list: response.data,
       count: +response.headers['x-content-record-total'],
@@ -34,7 +34,7 @@ function receiveUsersSuccess(response) {
   };
 }
 
-function receiveUsersFailure(response) {
+function receiveCategorysFailure(response) {
   return {
     type: LOGIN_FAILURE,
     payload: {
@@ -45,12 +45,12 @@ function receiveUsersFailure(response) {
 
 export function fetch(params) {
   return dispatch => {
-    dispatch(requestUsers());
-    return userHttp.query(params).then(response => {
+    dispatch(requestCategorys());
+    return categoryHttp.query(params).then(response => {
       if (!response || !response.data) {
-        dispatch(receiveUsersFailure(response));
+        dispatch(receiveCategorysFailure(response));
       } else {
-        dispatch(receiveUsersSuccess(response));
+        dispatch(receiveCategorysSuccess(response));
       }
     }).catch(err => console.log('Error: ', err))
   }
@@ -59,16 +59,16 @@ export function fetch(params) {
 export function create(data) {
   return dispatch => {
     dispatch({
-      type: ADD_USER_REQUEST
+      type: ADD_CATEGORY_REQUEST
     })
-    return userHttp.create(data).then(response => {
+    return categoryHttp.create(data).then(response => {
       dispatch({
-        type: ADD_USER_SUCCESS,
+        type: ADD_CATEGORY_SUCCESS,
         payload: response.data
       })
     }).catch((error) => {
       dispatch({
-        type: ADD_USER_FAILURE,
+        type: ADD_CATEGORY_FAILURE,
         payload: {
           message: error.response.data
         }
@@ -80,16 +80,16 @@ export function create(data) {
 export function modify(data, params) {
   return dispatch => {
     dispatch({
-      type: MODIFY_USER_REQUEST
+      type: MODIFY_CATEGORY_REQUEST
     })
-    return userHttp.modify(data, params).then(response => {
+    return categoryHttp.modify(data, params).then(response => {
       dispatch({
-        type: MODIFY_USER_SUCCESS,
+        type: MODIFY_CATEGORY_SUCCESS,
         payload: response.data
       })
     }).catch((error) => {
       dispatch({
-        type: MODIFY_USER_FAILURE,
+        type: MODIFY_CATEGORY_FAILURE,
         payload: {
           message: error.response.data
         }
@@ -101,16 +101,16 @@ export function modify(data, params) {
 export function remove(params) {
   return dispatch => {
     dispatch({
-      type: REMOVE_USER_REQUEST
+      type: REMOVE_CATEGORY_REQUEST
     })
-    return userHttp.remove(params).then(response => {
+    return categoryHttp.remove(params).then(response => {
       dispatch({
-        type: REMOVE_USER_SUCCESS,
+        type: REMOVE_CATEGORY_SUCCESS,
         payload: params
       })
     }).catch((error) => {
       dispatch({
-        type: REMOVE_USER_FAILURE,
+        type: REMOVE_CATEGORY_FAILURE,
         payload: {
           message: error.response.data
         }

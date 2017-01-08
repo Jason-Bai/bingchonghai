@@ -102,3 +102,27 @@
 .text-right {
   text-align: right;
 }
+.profile {
+  clear: both;
+}
+.profile .head-image {
+  float: left;
+  width: 15%;
+  border: 1px solid #ccc;
+  text-align: center;
+  height: 150px;
+  line-height: 150px;
+  margin-right: 5%;
+}
+.profile .profile-detail {
+  float: right;
+  width: 80%;
+}
+.profile .user-name {
+  font-size: 18px;
+  padding: 10px 0;
+}
+.profile .user-info {
+  padding: 5px 0;
+}
+

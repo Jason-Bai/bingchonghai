@@ -26,7 +26,8 @@ class Header extends Component {
 	}
 
   render() {
-    const { loggedIn } = this.props;
+    const { loggedIn, session } = this.props;
+    const { user } = session;
  		return (
       <header id="header">
         <Row>
@@ -58,7 +59,7 @@ class Header extends Component {
 											  <Icon type="bars" />分类管理
                       </Link>
 										</MenuItem>
-										<SubMenu className="settings" title={<span><Icon type="setting" />设置</span>}>
+										<SubMenu className="settings" title={<span><Icon type="user" />{user ? user.name : ''}</span>}>
 										  <MenuItem key="user">
                         <Link to="/admin/profile">
 										  	  <Icon type="user" />个人信息
