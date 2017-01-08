@@ -41,7 +41,8 @@ module.exports = (sequelize) => {
   }), ModelBase, {
     unique: ['name'],
     includes: {
-      creator: 'user'
+      creator: 'user',
+      parent: 'category'
     },
     sort: {
       default: 'createdAt',

@@ -3,9 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
-  Table, Card, Row, Col,
-	Form, Input, Icon, Select,
-	message, Radio, Modal
+  Table, Row, Col, Icon,
+	message, Modal, Radio, Select
 } from 'antd';
 
 import { ActionBar, Breadcrumb } from '../components'
@@ -14,12 +13,10 @@ import * as CategoryActions from './redux/actions';
 
 import config from '../config';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
+const confirm = Modal.confirm;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-const confirm = Modal.confirm;
-
+const Option = Select.Option;
 
 class CategoryList extends Component {
 
@@ -36,7 +33,8 @@ class CategoryList extends Component {
     const params = {
       sort: '-createdAt',
       startIndex: (this.state.current - 1) * this.state.pageSize,
-      maxResults: this.state.pageSize
+      maxResults: this.state.pageSize,
+      includes: 'creator,parent'
     }
     this.props.categoryActions.fetch(params)
   }
@@ -52,7 +50,33 @@ class CategoryList extends Component {
   }, {
     title: '等级',
     dataIndex: 'level',
-    key: 'level'
+    key: 'level',
+    render: (text, record) => {
+      const level = record.level + '',
+            context = { categoryActions: this.props.categoryActions, record: record };
+      return (
+        <Select defaultValue={level} style={{width: '100%'}} onChange={this.handleLevelChanged.bind(context)}>
+          {this.buildLevelOptions()}
+        </Select>
+      )
+    }
+  }, {
+    title: '父类',
+    dataIndex: 'parent.name',
+    key: 'parent.name',
+    render: (text, record) => {
+      const parent = record.parent.name,
+            context = { categoryActions: this.props.categoryActions, record: record };
+      return (
+        <Select defaultValue={parent} style={{width: '100%'}} onChange={this.handleParentChanged.bind(context)}>
+          {this.buildParentOptions()}
+        </Select>
+      )
+    }
+  }, {
+    title: '创建人',
+    dataIndex: 'creator.name',
+    key: 'creator.name'
   }, {
     title: '创建时间',
     dataIndex: 'createdAt',
@@ -62,19 +86,6 @@ class CategoryList extends Component {
         <span>
           {moment(record.createdAt).format(config.timeFormat)}
         </span>
-      )
-    }
-  }, {
-    title: '是否删除',
-    dataIndex: 'isDelete',
-    key: 'isDelete',
-    render: (text, record) => {
-      const context = {categoryId: record.id, categoryActions: this.props.categoryActions}
-      return (
-        <RadioGroup defaultValue={record.isDelete} size="small" onChange={this.handleIsDeleteChanged.bind(context)}>
-          <RadioButton value="no">No</RadioButton>
-          <RadioButton value="yes">Yes</RadioButton>
-        </RadioGroup>
       )
     }
   }, {
@@ -94,6 +105,28 @@ class CategoryList extends Component {
     }
   }]
 
+  buildParentOptions() {
+    return _.map(this.props.categories.list, (c) => {
+      const id = c.id.toString();
+      return <Option key={id} value={id}>{c.name}</Option>
+    })
+  }
+
+  buildLevelOptions() {
+    return _.map(config.levels, (level, index) => {
+      const id = level.toString();
+      return <Option key={id} value={id}>Level {id}</Option>
+    })
+  }
+
+  handleParentChanged(parentId) {
+    this.categoryActions.modify({parentId}, {id: this.record.id, parent: this.record.parent, creator: this.record.creator});
+  }
+
+  handleLevelChanged(level) {
+    this.categoryActions.modify({level}, {id: this.record.id, parent: this.record.parent, creator: this.record.creator});
+  }
+
   handleRemove() {
     const _this = this;
 	  confirm({
@@ -106,28 +139,10 @@ class CategoryList extends Component {
     });
   }
 
-  handleIsDeleteChanged(e) {
-    e.preventDefault();
-    const isDelete = e.target.value;
-    this.categoryActions.modify({isDelete}, {id: this.categoryId});
-  }
-
-  handleCreate = (err, values) => {
-    if (err) {
-      const errMsg = "Error: " + err;
-      message.error(errMsg);
-      return
-    }
-    return this.props.categoryActions.create(values)
-  }
-
   actionBarConfig = {
     add: {
-      modalTitle: '创建用户',
-      okText: '创建',
       buttonText: '新建',
-      formItems: this.formItems,
-      handleCreate: this.handleCreate
+      to: '/admin/categories/create'
     },
     search: {
       placeholder: '请输入名称搜索',
@@ -146,67 +161,6 @@ class CategoryList extends Component {
         })
       }
     }
-  }
-
-
-  formItems(form) {
-
-    const { getFieldDecorator } = form, formItemLayout = {
-      labelCol: { span: 5 },
-      wrapperCol: { span: 19 },
-    };
-
-    return (
-      <div className="form-items">
-        <FormItem
-          {...formItemLayout}
-          label="Name: "
-          hasFeedback
-        >
-          {getFieldDecorator('name', {
-            rules: [{
-              required: true, min: 2, max: 30, message: 'Please input your name!',
-            }],
-          })(
-            <Input />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Level: "
-          hasFeedback
-        >
-          {getFieldDecorator('level', {
-            rules: [{
-              required: true, message: 'Please select a level!',
-            }],
-            initialValue: '0'
-          })(
-            <Select>
-              <Option value="0">0</Option>
-              <Option value="1">1</Option>
-              <Option value="2">2</Option>
-            </Select>
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="父类: "
-          hasFeedback
-        >
-          {getFieldDecorator('parentId', {
-            rules: [{
-              required: true, message: 'Please select a fatherl!',
-            }],
-            initialValue: '0'
-          })(
-            <Select>
-              <Option value="1">哈哈</Option>
-            </Select>
-          )}
-        </FormItem>
-      </div>
-    )
   }
 
   breadCrumbs = [{
@@ -260,6 +214,7 @@ class CategoryList extends Component {
         <ActionBar {...this.actionBarConfig} />
         <Table
           rowKey="id"
+          pagination={this.pagination}
           dataSource={this.props.categories.list}
           columns={this.columns}
           size="middle"

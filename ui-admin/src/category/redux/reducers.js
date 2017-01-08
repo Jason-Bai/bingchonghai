@@ -1,3 +1,4 @@
+import _ from 'lodash';
 const {
   FETCH_CATEGORY_REQUEST, FETCH_CATEGORY_SUCCESS, FETCH_CATEGORY_FAILURE,
   ADD_CATEGORY_REQUEST, ADD_CATEGORY_SUCCESS, ADD_CATEGORY_FAILURE,
@@ -52,12 +53,17 @@ function categories(state = {
         isFetching: true
       });
     case MODIFY_CATEGORY_SUCCESS:
+      let modifiedList= [];
+      _.each(state.list, (c) => {
+        if (c.id === action.payload.id) {
+          modifiedList.push(action.payload);
+        } else {
+          modifiedList.push(c);
+        }
+      })
       return Object.assign({}, state, {
         isFetching: false,
-        list: [
-          action.payload,
-          ...state.list
-        ]
+        list: modifiedList
       });
     case MODIFY_CATEGORY_FAILURE:
       return Object.assign({}, state, {
@@ -69,12 +75,12 @@ function categories(state = {
         isFetching: true
       });
     case REMOVE_CATEGORY_SUCCESS:
-      const list = state.list.filter((c) => {
+      let removedList = state.list.filter((c) => {
         return c.id !== action.payload.id;
       })
       return Object.assign({}, state, {
         isFetching: false,
-        list
+        list: removedList
       });
     case REMOVE_CATEGORY_FAILURE:
       return Object.assign({}, state, {

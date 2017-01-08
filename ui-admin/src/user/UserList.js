@@ -3,8 +3,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
-  Table, Card, Row, Col,
-	Icon, message, Modal
+  Table, Row, Col, Icon,
+  message, Modal, Radio
 } from 'antd';
 
 import { ActionBar, Breadcrumb } from '../components'
@@ -14,7 +14,8 @@ import * as UserActions from './redux/actions';
 import config from '../config';
 
 const confirm = Modal.confirm;
-
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 class UserList extends Component {
 
@@ -201,6 +202,7 @@ class UserList extends Component {
         <ActionBar {...this.actionBarConfig} />
         <Table
           rowKey="id"
+          pagination={this.pagination}
           dataSource={this.props.users.list}
           columns={this.columns}
           size="middle"

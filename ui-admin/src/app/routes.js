@@ -19,7 +19,10 @@ export default (
         <IndexRoute component={User.UserList} />
         <Route path="create" component={User.UserCreate} />
       </Route>
-      <Route path="categories" component={Category.CategoryList} />
+      <Route path="categories">
+        <IndexRoute component={Category.CategoryList} />
+        <Route path="create" component={Category.CategoryCreate} />
+      </Route>
     </Route>
   </Route>
 );

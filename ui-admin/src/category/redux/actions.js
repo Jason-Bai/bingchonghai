@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { categoryHttp } from '../../utils/httpClient';
 import {
   FETCH_CATEGORY_REQUEST,
@@ -81,19 +82,20 @@ export function modify(data, params) {
   return dispatch => {
     dispatch({
       type: MODIFY_CATEGORY_REQUEST
-    })
+    });
     return categoryHttp.modify(data, params).then(response => {
+      const payload = _.extend({}, response.data, {parent: params.parent, creator: params.creator});
       dispatch({
         type: MODIFY_CATEGORY_SUCCESS,
-        payload: response.data
-      })
+        payload
+      });
     }).catch((error) => {
       dispatch({
         type: MODIFY_CATEGORY_FAILURE,
         payload: {
           message: error.response.data
         }
-      })
+      });
     })
   }
 }
