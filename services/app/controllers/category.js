@@ -5,7 +5,7 @@ const config = require('../configs');
 const Category = U.model('category');
 
 /**
- * @api {GET} /categorys 农业分类列表
+ * @api {GET} /categorys 分类列表
  * @apiName category_list
  * @apiGroup Category
  * @apiPermission admin
@@ -34,7 +34,7 @@ const list = [
 ];
 
 /**
- * @api {PUT/PATCH} /categorys/:id 编辑农业分类
+ * @api {PUT/PATCH} /categorys/:id 编辑分类
  * @apiName category_modify
  * @apiPermission admin
  * @apiGroup Category
