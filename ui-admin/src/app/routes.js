@@ -15,7 +15,10 @@ export default (
     <Route path="admin" component={App}>
       <IndexRoute component={Home} />
       <Route path="profile" component={User.Profile} />
-      <Route path="users" component={User.UserList} />
+      <Route path="users">
+        <IndexRoute component={User.UserList} />
+        <Route path="create" component={User.UserCreate} />
+      </Route>
       <Route path="categories" component={Category.CategoryList} />
     </Route>
   </Route>

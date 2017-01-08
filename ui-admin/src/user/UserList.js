@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
   Table, Card, Row, Col,
-	Form, Input, Icon, Select,
-	message, Radio, Modal
+	Icon, message, Modal
 } from 'antd';
 
 import { ActionBar, Breadcrumb } from '../components'
@@ -14,10 +13,6 @@ import * as UserActions from './redux/actions';
 
 import config from '../config';
 
-const FormItem = Form.Item;
-const Option = Select.Option;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
 const confirm = Modal.confirm;
 
 
@@ -131,22 +126,10 @@ class UserList extends Component {
     this.userActions.modify({status}, {id: this.userId});
   }
 
-  handleCreate = (err, values) => {
-    if (err) {
-      const errMsg = "Error: " + err;
-      message.error(errMsg);
-      return
-    }
-    return this.props.userActions.create(values)
-  }
-
   actionBarConfig = {
     add: {
-      modalTitle: '创建用户',
-      okText: '创建',
       buttonText: '新建',
-      formItems: this.formItems,
-      handleCreate: this.handleCreate
+      to: '/admin/users/create'
     },
     search: {
       placeholder: '请输入名称搜索',
@@ -165,61 +148,6 @@ class UserList extends Component {
         })
       }
     }
-  }
-
-
-  formItems(form) {
-
-    const { getFieldDecorator } = form, formItemLayout = {
-      labelCol: { span: 5 },
-      wrapperCol: { span: 19 },
-    };
-
-    return (
-      <div className="form-items">
-        <FormItem
-          {...formItemLayout}
-          label="Name: "
-          hasFeedback
-        >
-          {getFieldDecorator('name', {
-            rules: [{
-              required: true, min: 2, max: 30, message: 'Please input your name!',
-            }],
-          })(
-            <Input />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="E-mail: "
-          hasFeedback
-        >
-          {getFieldDecorator('email', {
-            rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
-          })(
-            <Input />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Password: "
-          hasFeedback
-        >
-          {getFieldDecorator('password', {
-            rules: [{
-              required: true, min: 8, max: 20, message: 'Please input your password!'
-            }],
-          })(
-            <Input type="password" />
-          )}
-        </FormItem>
-      </div>
-    )
   }
 
   breadCrumbs = [{

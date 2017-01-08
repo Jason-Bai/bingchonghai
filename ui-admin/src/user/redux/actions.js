@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { userHttp } from '../../utils/httpClient';
 import {
   FETCH_USER_REQUEST,
@@ -67,10 +68,17 @@ export function create(data) {
         payload: response.data
       })
     }).catch((error) => {
+      let message;
+      if (_.isString(error.response.data.message)) {
+        message = error.response.data.message;
+      }
+      if (_.isArray(error.response.data.message)) {
+        message = _.map(error.response.data.message, 'message').join(';')
+      }
       dispatch({
         type: ADD_USER_FAILURE,
         payload: {
-          message: error.response.data
+          message
         }
       })
     })
@@ -88,10 +96,17 @@ export function modify(data, params) {
         payload: response.data
       })
     }).catch((error) => {
+      let message;
+      if (_.isString(error.response.data.message)) {
+        message = error.response.data.message;
+      }
+      if (_.isArray(error.response.data.message)) {
+        message = _.map(error.response.data.message, 'message').join(';')
+      }
       dispatch({
         type: MODIFY_USER_FAILURE,
         payload: {
-          message: error.response.data
+          message
         }
       })
     })
@@ -109,10 +124,17 @@ export function remove(params) {
         payload: params
       })
     }).catch((error) => {
+      let message;
+      if (_.isString(error.response.data.message)) {
+        message = error.response.data.message;
+      }
+      if (_.isArray(error.response.data.message)) {
+        message = _.map(error.response.data.message, 'message').join(';')
+      }
       dispatch({
         type: REMOVE_USER_FAILURE,
         payload: {
-          message: error.response.data
+          message
         }
       })
     })

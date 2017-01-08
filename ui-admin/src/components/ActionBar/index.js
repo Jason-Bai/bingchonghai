@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Input } from 'antd';
-import FormModal from '../FormModal';
+import { Link } from 'react-router';
+import { Row, Col, Input, Button } from 'antd';
 
 const Search = Input.Search;
 
@@ -14,7 +14,9 @@ export default class ActionBar extends Component {
             <Search {...search} />
           </Col>
           <Col span={2} order={2} offset={18}>
-            <FormModal {...add} />
+            <Link to={add.to}>
+              <Button type="primary" icon="plus" style={{width: '100%'}}>{add.buttonText}</Button>
+            </Link>
           </Col>
         </Row>
       </div>

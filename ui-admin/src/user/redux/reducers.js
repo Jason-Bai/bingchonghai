@@ -9,7 +9,7 @@ function users(state = {
     isFetching: false,
     list: [],
     count: 0,
-    message: '',
+    errorMessage: null,
   }, action) {
   switch (action.type) {
     case FETCH_USER_REQUEST:
@@ -17,21 +17,24 @@ function users(state = {
         isFetching: true,
         list: action.payload.list,
         count: action.payload.count,
+        errorMessage: null,
       });
     case FETCH_USER_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
         list: action.payload.list,
         count: action.payload.count,
+        errorMessage: null,
       });
     case FETCH_USER_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        message: action.payload.message,
+        errorMessage: action.payload.message,
       });
     case ADD_USER_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
+        errorMessage: null,
       });
     case ADD_USER_SUCCESS:
       return Object.assign({}, state, {
@@ -41,15 +44,17 @@ function users(state = {
           ...state.list
         ],
         count: state.count + 1,
+        errorMessage: null,
       });
     case ADD_USER_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        message: action.payload.message,
+        errorMessage: action.payload.message,
       });
     case MODIFY_USER_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
+        errorMessage: null,
       });
     case MODIFY_USER_SUCCESS:
       return Object.assign({}, state, {
@@ -57,16 +62,18 @@ function users(state = {
         list: [
           action.payload,
           ...state.list
-        ]
+        ],
+        errorMessage: null
       });
     case MODIFY_USER_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        message: action.payload.message,
+        errorMessage: action.payload.message,
       });
     case REMOVE_USER_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
+        errorMessage: null
       });
     case REMOVE_USER_SUCCESS:
       const list = state.list.filter((u) => {
@@ -74,12 +81,13 @@ function users(state = {
       })
       return Object.assign({}, state, {
         isFetching: false,
+        errorMessage: null,
         list
       });
     case REMOVE_USER_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        message: action.payload.message,
+        errorMessage: action.payload.message,
       });
     default:
       return state;
