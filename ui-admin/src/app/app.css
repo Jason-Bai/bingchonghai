@@ -84,3 +84,21 @@
 .action-bar {
   margin-bottom: 24px;
 }
+.breadcrumbs {
+  text-align: right;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.text-red {
+  color: #f00;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}

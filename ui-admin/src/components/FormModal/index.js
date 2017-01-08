@@ -53,7 +53,7 @@ class FormModal extends Component {
 
     return (
       <div className="form-modal">
-        <Button type="primary" style={{width: '100%'}} onClick={this.showModal}>{buttonText}</Button>
+        <Button type="primary" style={{width: '100%'}} icon="plus" onClick={this.showModal}>{buttonText}</Button>
         <Modal
           visible={this.state.visible}
           title={modalTitle}

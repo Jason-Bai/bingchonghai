@@ -6,6 +6,7 @@ import { Row, Col, Menu, Icon } from 'antd';
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
+const logo = require('./logo.svg');
 
 class Header extends Component {
 
@@ -31,7 +32,7 @@ class Header extends Component {
         <Row>
           <Col className="ant-col-xs-24 ant-col-sm-24 ant-col-md-6 ant-col-lg-4">
 						<a id="logo" href="/">
-							<img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+							<img alt="logo" src={logo} />
 							<span>Bingchonghai</span>
 						</a>
 					</Col>

@@ -5,7 +5,13 @@ import {
   FETCH_USER_FAILURE,
   ADD_USER_REQUEST,
   ADD_USER_SUCCESS,
-  ADD_USER_FAILURE
+  ADD_USER_FAILURE,
+  MODIFY_USER_REQUEST,
+  MODIFY_USER_SUCCESS,
+  MODIFY_USER_FAILURE,
+  REMOVE_USER_REQUEST,
+  REMOVE_USER_SUCCESS,
+  REMOVE_USER_FAILURE
 } from './constants';
 
 function requestUsers() {
@@ -65,6 +71,48 @@ export function create(data) {
         type: ADD_USER_FAILURE,
         payload: {
           message: response.data
+        }
+      })
+    })
+  }
+}
+
+export function modify(data, params) {
+  return dispatch => {
+    dispatch({
+      type: MODIFY_USER_REQUEST
+    })
+    return userHttp.modify(data, params).then(response => {
+      dispatch({
+        type: MODIFY_USER_SUCCESS,
+        payload: response.data
+      })
+    }).catch((err) => {
+      dispatch({
+        type: MODIFY_USER_FAILURE,
+        payload: {
+          message: error.response.data
+        }
+      })
+    })
+  }
+}
+
+export function remove(params) {
+  return dispatch => {
+    dispatch({
+      type: REMOVE_USER_REQUEST
+    })
+    return userHttp.remove(params).then(response => {
+      dispatch({
+        type: REMOVE_USER_SUCCESS,
+        payload: params
+      })
+    }).catch((err) => {
+      dispatch({
+        type: REMOVE_USER_FAILURE,
+        payload: {
+          message: error.response.data
         }
       })
     })

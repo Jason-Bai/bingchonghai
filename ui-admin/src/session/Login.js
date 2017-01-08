@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd';
+import { browserHistory } from 'react-router';
 import { AuthActions } from './redux/actions';
 
 const FormItem = Form.Item;
@@ -13,11 +14,18 @@ export class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+  componentWillMount() {
+    if (!this.props.auth.isAuthenticated) {
+      return browserHistory.push('/')
+    }
+    return browserHistory.push('/admin')
+  }
+
   render() {
 
     const { getFieldDecorator } = this.props.form;
 
-    const { errorMessage } = this.props;
+    const { auth } = this.props;
 
 		const formItemLayout = {
       labelCol: { span: 6 },
@@ -28,8 +36,8 @@ export class Login extends Component {
       <Row>
         <Col span={12} offset={6}>
           <Card title="后台登录" className="admin-login">
-						{ errorMessage &&
-							<p className="text-error">{errorMessage}</p>
+						{ auth.errorMessage &&
+							<p className="text-error">{auth.errorMessage}</p>
 						}
 			      <Form onSubmit={this.handleSubmit} className="login-form">
               <FormItem>
@@ -88,13 +96,11 @@ Login.propTypes = {
 
 function mapStateToProps(state) {
   const {
-    auth: {
-      errorMessage
-    }
+    auth
   } = state;
 
   return {
-    errorMessage
+		auth
   };
 }
 

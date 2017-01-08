@@ -45,5 +45,11 @@ export const userHttp = {
   },
   create: (data = {}) => {
     return instanceWithToken().post('/users', data);
+  },
+  modify: (data = {}, params = {}) => {
+    return instanceWithToken().patch(`/users/${params.id}`, data);
+  },
+  remove: (params) => {
+    return instanceWithToken().delete(`/users/${params.id}`);
   }
 };

@@ -29,6 +29,11 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
+		new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      'window.jQuery': "jquery"
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       __DEV__: true
@@ -47,7 +52,8 @@ module.exports = {
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
       {test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']},
-      {test: /\.json$/, loader: "json"}
+      {test: /\.json$/, loader: "json"},
+      {test: require.resolve("moment"), loader: "expose-loader?$!expose-loader?moment" }
     ]
   },
   postcss: ()=> [autoprefixer]
