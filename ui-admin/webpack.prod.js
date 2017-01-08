@@ -33,6 +33,11 @@ module.exports = {
     filename: '[name].js'
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      'window.jQuery': "jquery"
+    }),
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
@@ -79,7 +84,8 @@ module.exports = {
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
       {test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')},
-      {test: /\.json$/, loader: "json"}
+      {test: /\.json$/, loader: "json"},
+      {test: require.resolve("moment"), loader: "expose-loader?$!expose-loader?moment" }
     ]
   },
   postcss: ()=> [autoprefixer]
