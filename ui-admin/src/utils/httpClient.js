@@ -62,3 +62,4 @@ function crud(endpoint) {
 };
 export const userHttp = crud('users');
 export const categoryHttp = crud('categorys');
+export const diseaseHttp = crud('diseases');

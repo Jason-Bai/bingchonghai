@@ -4,7 +4,7 @@ const ModelBase = require('./base');
 const Sequelize = U.rest.Sequelize;
 
 module.exports = (sequelize) => {
-  const Category = U._.extend(sequelize.define('category', {
+  const Disease = U._.extend(sequelize.define('disease', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -15,17 +15,13 @@ module.exports = (sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    level: {
-      type: Sequelize.INTEGER,
-      defaultValue: 1,
-    },
     isDelete: {
       type: Sequelize.ENUM('yes', 'no'),
       defaultValue: 'no',
     },
-    parentId: {
+    categoryId: {
       type: Sequelize.INTEGER,
-      defaultValue: 1,
+      defaultValue: 0,
     },
     creatorId: {
       type: Sequelize.INTEGER,
@@ -41,25 +37,25 @@ module.exports = (sequelize) => {
     unique: ['name'],
     includes: {
       creator: 'user',
-      parent: 'category',
+      parent: 'disease',
     },
     sort: {
       default: 'createdAt',
-      allow: ['name', 'isDelete', 'parentId', 'creatorId', 'updatedAt', 'createdAt'],
+      allow: ['name', 'isDelete', 'categoryId', 'creatorId', 'updatedAt', 'createdAt'],
     },
     writableCols: [
-      'name', 'level', 'parentId', 'creatorId',
+      'name', 'categoryId', 'creatorId',
     ],
     editableCols: [
-      'name', 'level', 'parentId', 'creatorId',
+      'name', 'categoryId', 'creatorId',
     ],
     /** 只有管理员才可以修改的字段 */
-    onlyAdminCols: ['name', 'level'],
+    onlyAdminCols: ['name'],
 
     /** 定义允许包含返回的字段，不设置为全部 */
     allowIncludeCols: [
-      'name', 'level', 'isDelete', 'parentId', 'createdAt',
+      'name', 'isDelete', 'categoryId', 'createdAt',
     ],
   });
-  return Category;
+  return Disease;
 };

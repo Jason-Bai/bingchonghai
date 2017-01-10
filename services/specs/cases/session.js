@@ -9,15 +9,15 @@ const cases = [{
     'X-Real-IP': '199.199.0.199',
   },
   data: {
-    email: '13740080@qq.com',
-    password: '123456abc',
+    email: '602316022@qq.com',
+    password: 'baiyu',
   },
   expects: {
     Status: 201,
     JSON: {
       id: 1,
-      name: 'Redstone Zhao',
-      email: '13740080@qq.com',
+      name: 'baiyu',
+      email: '602316022@qq.com',
       role: 'admin',
       status: 'enabled',
       isDelete: 'no',
@@ -53,8 +53,8 @@ const cases = [{
       Status: 200,
       JSON: {
         id: 1,
-        name: 'Redstone Zhao',
-        email: '13740080@qq.com',
+        name: 'baiyu',
+        email: '602316022@qq.com',
         role: 'admin',
         status: 'enabled',
         isDelete: 'no',
@@ -95,8 +95,8 @@ const cases = [{
     'X-Real-IP': '199.199.0.199',
   },
   data: {
-    email: '13740080@qq.com',
-    password: '123456bc',
+    email: '602316022@qq.com',
+    password: 'baiyu123',
   },
   expects: {
     Status: 403,
@@ -113,8 +113,8 @@ const cases = [{
     'X-Real-IP': '199.199.0.199',
   },
   data: {
-    email: '13740090@qq.com',
-    password: '123456abc',
+    email: '123456789@qq.com',
+    password: '123456789',
   },
   expects: {
     Status: 403,
@@ -131,8 +131,8 @@ const cases = [{
     'X-Real-IP': '199.199.0.199',
   },
   data: {
-    email: '13740090@qq.com',
-    password: '123456abc',
+    email: '0987654321@qq.com',
+    password: 'baiyu',
   },
   expects: {
     Status: 403,
@@ -152,8 +152,8 @@ const cases = [{
     Status: 200,
     JSON: {
       id: 1,
-      name: 'Redstone Zhao',
-      email: '13740080@qq.com',
+      name: 'baiyu',
+      email: '602316022@qq.com',
       role: 'admin',
       status: 'enabled',
       isDelete: 'no',

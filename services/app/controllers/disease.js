@@ -1,12 +1,12 @@
 const U = require('../lib/utils');
 const helper = require('./helper');
 
-const Category = U.model('category');
+const Disease = U.model('disease');
 
 /**
- * @api {GET} /categorys 分类列表
- * @apiName category_list
- * @apiGroup Category
+ * @api {GET} /diseases 病害列表
+ * @apiName disease_list
+ * @apiGroup disease
  * @apiPermission admin
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
@@ -17,10 +17,9 @@ const Category = U.model('category');
  *   Body:
  *   [{
  *     id: 1,
- *     name: '农作物,
- *     level: 1,
+ *     name: '小麦秆枯病',
  *     isDelete: 'no',
- *     parentId: 0,
+ *     categoryId: 1,
  *     creatorId: 1,
  *     createdAt: '2014-09-03T03:15:16.000Z',
  *     updatedAt: '2014-09-03T03:15:16.000Z'
@@ -29,29 +28,27 @@ const Category = U.model('category');
  */
 const list = [
   helper.checker.sysAdmin(),
-  helper.rest.list(Category),
+  helper.rest.list(Disease),
 ];
 
 /**
- * @api {PUT/PATCH} /categorys/:id 编辑分类
- * @apiName category_modify
+ * @api {PUT/PATCH} /diseases/:id 编辑病害
+ * @apiName disease_modify
  * @apiPermission admin
- * @apiGroup Category
- * @apiParam (query) {Number} id 分类ID
- * @apiParam (body) {String} [name] 分类名称
- * @apiParam (body) {Number} [level] 分裂级别
+ * @apiGroup disease
+ * @apiParam (query) {Number} id 病害ID
+ * @apiParam (body) {String} [name] 病害名称
  * @apiParam (body) {Enum} [isDelete] 是否删除
- * @apiParam (body) {Number} [parentId] 父分裂ID
+ * @apiParam (body) {Number} [categoryId] 分类ID
  * @apiParam (body) {Number} [creatorId] 创建者ID
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   Body:
  *   {
  *     id: 1,
- *     name: '农作物,
- *     level: 1,
+ *     name: '小麦秆枯病,
  *     isDelete: 'no',
- *     parentId: 1,
+ *     categoryId: 1,
  *     creatorId: 1,
  *     createdAt: '2014-09-03T03:15:16.000Z',
  *     updatedAt: '2014-09-03T03:15:16.000Z'
@@ -59,47 +56,46 @@ const list = [
  * @apiVersion 1.0.0
  */
 const modify = [
-  helper.getter(Category, 'category'),
-  helper.assert.exists('hooks.category'),
+  helper.getter(Disease, 'disease'),
+  helper.assert.exists('hooks.disease'),
   [
     helper.checker.ownSelf('id', 'user'),
     helper.checker.sysAdmin(),
   ],
-  helper.rest.modify(Category, 'category'),
+  helper.rest.modify(Disease, 'disease'),
 ];
 
 /**
- * @api {DELETE} /categorys/:id 删除分类
- * @apiName category_del
+ * @api {DELETE} /diseases/:id 删除病害
+ * @apiName disease_del
  * @apiPermission admin
- * @apiGroup Category
- * @apiParam {Number} id 分类ID
+ * @apiGroup disease
+ * @apiParam {Number} id 病害ID
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 204 No Content
  * @apiVersion 1.0.0
  */
 const remove = [
   helper.checker.sysAdmin(),
-  helper.getter(Category, 'category'),
-  helper.assert.exists('hooks.category'),
-  helper.rest.remove.hook('category').exec(),
+  helper.getter(Disease, 'disease'),
+  helper.assert.exists('hooks.disease'),
+  helper.rest.remove.hook('disease').exec(),
 ];
 
 /**
- * @api {GET} /categores/:id 查看分类
- * @apiName category_detail
+ * @api {GET} /categores/:id 查看病害
+ * @apiName disease_detail
  * @apiPermission admin | owner
- * @apiGroup Category
- * @apiParam (query) {Number} id 分类ID
+ * @apiGroup disease
+ * @apiParam (query) {Number} id 病害ID
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 200 OK
  *   Body:
  *   {
  *     id: 1,
- *     name: '农作物,
- *     level: 1,
+ *     name: '小麦秆枯病,
  *     isDelete: 'no',
- *     parentId: 1,
+ *     categoryId: 1,
  *     creatorId: 1,
  *     createdAt: '2014-09-03T03:15:16.000Z',
  *     updatedAt: '2014-09-03T03:15:16.000Z'
@@ -107,20 +103,19 @@ const remove = [
  * @apiVersion 1.0.0
  */
 const detail = [
-  helper.getter(Category, 'category'),
-  helper.assert.exists('hooks.category'),
-  helper.rest.detail('category'),
+  helper.getter(Disease, 'disease'),
+  helper.assert.exists('hooks.disease'),
+  helper.rest.detail('disease'),
 ];
 
 /**
- * @api {POST} /categorys 添加分类
- * @apiName category_add
+ * @api {POST} /diseases 添加病害
+ * @apiName disease_add
  * @apiPermission admin
- * @apiGroup Category
- * @apiParam (body) {String} name 分类名称
- * @apiParam (body) {Number} level 分类级别
+ * @apiGroup disease
+ * @apiParam (body) {String} name 病害名称
  * @apiParam (body) {Enum} [isDelete] 是否删除`yes` or `no`
- * @apiParam (body) {Number} parentId 父分类ID
+ * @apiParam (body) {Number} categoryId 分类ID
  * @apiParam (body) {Number} creatorId 创建者ID
  * @apiSuccessExample {json} Success-Response:
  *   HTTP/1.1 201 Created
@@ -128,10 +123,9 @@ const detail = [
  *   Body:
  *   {
  *     id: 1,
- *     name: '农作物,
- *     level: 1,
+ *     name: '小麦秆枯病,
  *     isDelete: 'no',
- *     parentId: 1,
+ *     categoryId: 1,
  *     creatorId: 1,
  *     createdAt: '2014-09-03T03:15:16.000Z',
  *     updatedAt: '2014-09-03T03:15:16.000Z'
@@ -140,7 +134,7 @@ const detail = [
  */
 const add = [
   helper.checker.sysAdmin(),
-  helper.rest.add(Category),
+  helper.rest.add(Disease),
 ];
 
 module.exports = {

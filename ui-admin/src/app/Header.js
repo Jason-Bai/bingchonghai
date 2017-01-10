@@ -59,6 +59,11 @@ class Header extends Component {
 											  <Icon type="bars" />分类管理
                       </Link>
 										</MenuItem>
+										<MenuItem key="tags">
+                      <Link to="/admin/diseases">
+											  <Icon type="tags" />病害管理
+                      </Link>
+										</MenuItem>
 										<SubMenu className="settings" title={<span><Icon type="user" />{user ? user.name : ''}</span>}>
 										  <MenuItem key="user">
                         <Link to="/admin/profile">

@@ -21,5 +21,8 @@ module.exports = (r) => {
   r.resource('user');
 
   /** 分类接口 */
-  r.resource("category");
+  r.resource('category');
+
+  /** 病害接口 */
+  r.resource('disease');
 };

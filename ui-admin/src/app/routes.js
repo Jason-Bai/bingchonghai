@@ -6,6 +6,7 @@ import Logout from '../session/Logout';
 import Home from './Home';
 import User from '../user';
 import Category from '../category';
+import Disease from '../disease';
 
 export default (
   <Route path="/">
@@ -22,6 +23,10 @@ export default (
       <Route path="categories">
         <IndexRoute component={Category.CategoryList} />
         <Route path="create" component={Category.CategoryCreate} />
+      </Route>
+      <Route path="diseases">
+        <IndexRoute component={Disease.DiseaseList} />
+        <Route path="create" component={Disease.DiseaseCreate} />
       </Route>
     </Route>
   </Route>
