@@ -85,8 +85,8 @@ module.exports = [{
         level: 2,
         parentId: 1,
         creatorId: 1,
-      }
-    }
+      },
+    },
   },
 }, {
   name: '管理员更新一个一级分类',

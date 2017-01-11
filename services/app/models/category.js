@@ -9,10 +9,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: Sequelize.INTEGER.UNSIGNED,
     },
     name: {
-      type: Sequelize.STRING,
+      type: Sequelize.type('string', 30),
       allowNull: false,
     },
     level: {
@@ -20,15 +20,16 @@ module.exports = (sequelize) => {
       defaultValue: 1,
     },
     isDelete: {
-      type: Sequelize.ENUM('yes', 'no'),
+      type: Sequelize.ENUM,
+      values: ['yes', 'no'],
       defaultValue: 'no',
     },
     parentId: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.INTEGER.UNSIGNED,
       defaultValue: 1,
     },
     creatorId: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.INTEGER.UNSIGNED,
       defaultValue: 0,
     },
   }, {

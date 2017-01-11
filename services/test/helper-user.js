@@ -1,10 +1,17 @@
 const assert = require('assert');
-const rest = require('open-rest');
-const helperRest = require('open-rest-helper-rest');
 const U = require('../app/lib/utils');
+const openRestWithMysql = require('open-rest-with-mysql');
 const user = require('../app/controllers/helper/user');
+const getter = require('open-rest-helper-getter');
+const rest = require('open-rest-helper-rest');
+const params = require('open-rest-helper-params');
 
-const Sequelize = rest.Sequelize;
+U.model = openRestWithMysql(U.rest);
+getter(U.rest);
+rest(U.rest);
+params(U.rest);
+
+const Sequelize = openRestWithMysql.Sequelize;
 
 const sequelize = new Sequelize();
 
@@ -92,8 +99,6 @@ models.auth.readUserByToken = {
 };
 
 models.auth.findOne = () => new Promise((resolve) => setTimeout(resolve, 10));
-
-helperRest(rest);
 
 describe('helper.user', () => {
   describe('#logout', () => {

@@ -17,22 +17,10 @@ U.async = require('async');
 U.path = require('path');
 U.fs = require('fs');
 U.openRestAccessLog = require('open-rest-access-log');
+U.openRestWithMysql = require('open-rest-with-mysql');
 U.onFinished = require('on-finished');
-U.bunyan = require('bunyan');
-
-if (U.rest.Sequelize) {
-  U.rest.Sequelize.type = (paths, len) => {
-    const fn = U._.get(U.rest.Sequelize, paths.toUpperCase());
-    if (!fn) throw Error(`Sequelize types non-exists: ${paths}`);
-    return len == null ? fn : fn(len);
-  };
-}
 
 let utils = {
-
-  isApiTest: process.env.NODE_ENV === 'apitest',
-
-  isProd: process.env.NODE_ENV === 'production',
 
   model: U.rest.model,
 
