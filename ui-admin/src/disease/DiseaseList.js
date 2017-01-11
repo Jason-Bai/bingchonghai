@@ -10,6 +10,7 @@ import {
 import { ActionBar, Breadcrumb } from '../components'
 
 import * as DiseaseActions from './redux/actions';
+import * as CategoryActions from '../category/redux/actions';
 
 import config from '../config';
 
@@ -30,13 +31,20 @@ class DiseaseList extends Component {
   }
 
   componentWillMount() {
-    const params = {
+    const diseaseParams = {
       sort: '-createdAt',
       startIndex: (this.state.current - 1) * this.state.pageSize,
       maxResults: this.state.pageSize,
-      includes: 'creator,parent'
+      includes: 'creator,category'
+    }, categoryParams = {
+      sort: '-createdAt',
+      startIndex: 0,
+      maxResults: 500
     }
-    this.props.diseaseActions.fetch(params)
+
+    this.props.diseaseActions.fetch(diseaseParams)
+
+    this.props.categoryActions.fetch(categoryParams)
   }
 
 	columns = [{
@@ -48,6 +56,18 @@ class DiseaseList extends Component {
     dataIndex: 'name',
     key: 'name',
   }, {
+		title: '分类',
+		dataIndex: 'category.name',
+	  key: 'category.name',
+		render: (text, record) => {
+			const context = {record: record, diseaseActions: this.props.diseaseActions};
+			return (
+				<Select defaultValue={text} onChange={this.handleCategoryChanged.bind(context)} style={{width: '100%'}}>
+					{this.buildCategoryOptions()}
+				</Select>
+			)
+		}
+	}, {
     title: '创建人',
     dataIndex: 'creator.name',
     key: 'creator.name',
@@ -67,28 +87,27 @@ class DiseaseList extends Component {
     dataIndex: 'operations',
     key: 'operations',
     className: 'text-center',
+    render: (text, record) => {
+      const context = {diseaseId: record.id, diseaseActions: this.props.diseaseActions}
+      return (
+        <div className="operations">
+          <Link className="text-red" onClick={this.handleRemove.bind(context)}>
+            <Icon type="delete" />
+          </Link>
+        </div>
+      )
+    }
   }]
 
-  buildParentOptions() {
-    return _.map(this.props.diseases.list, (c) => {
-      const id = c.id.toString();
-      return <Option key={id} value={id}>{c.name}</Option>
+  buildCategoryOptions = () => {
+    return _.map(this.props.categories.list, (category) => {
+      const id = category.id.toString();
+      return <Option key={id} value={id}>{category.name}</Option>
     })
   }
 
-  buildLevelOptions() {
-    return _.map(config.levels, (level, index) => {
-      const id = level.toString();
-      return <Option key={id} value={id}>Level {id}</Option>
-    })
-  }
-
-  handleParentChanged(parentId) {
-    this.diseaseActions.modify({parentId}, {id: this.record.id, parent: this.record.parent, creator: this.record.creator});
-  }
-
-  handleLevelChanged(level) {
-    this.diseaseActions.modify({level}, {id: this.record.id, parent: this.record.parent, creator: this.record.creator});
+  handleCategoryChanged(categoryId) {
+    this.diseaseActions.modify({categoryId}, {id: this.record.id, category: this.record.category, creator: this.record.creator});
   }
 
   handleRemove() {
@@ -97,7 +116,7 @@ class DiseaseList extends Component {
       title: '删除',
       content: '确认删除吗？',
       onOk() {
-        _this.diseaseActions.remove({id: _this.categoryId})
+        _this.diseaseActions.remove({id: _this.diseaseId})
       },
       onCancel() {},
     });
@@ -115,7 +134,8 @@ class DiseaseList extends Component {
 					startIndex: (this.state.current - 1) * this.state.pageSize,
 					maxResults: this.state.pageSize,
           sort: '-createdAt',
-          onDelete: 'no'
+          onDelete: 'no',
+					includes: 'creator,category'
         };
         if (v) {
           params.name = v;
@@ -150,7 +170,8 @@ class DiseaseList extends Component {
 				startIndex: (current - 1) * pageSize,
 				maxResults: pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+				includes: 'creator,category'
 			}
 
 			this.props.diseaseActions.fetch(params);
@@ -164,7 +185,8 @@ class DiseaseList extends Component {
 				startIndex: (current - 1) * this.state.pageSize,
 				maxResults: this.state.pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+				includes: 'creator,category'
 			}
 
 			this.props.diseaseActions.fetch(params);
@@ -190,13 +212,15 @@ class DiseaseList extends Component {
 
 function mapStateToProps(state) {
   return {
-    diseases: state.diseases
+    diseases: state.diseases,
+    categories: state.categories
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     diseaseActions: bindActionCreators(DiseaseActions, dispatch),
+    categoryActions: bindActionCreators(CategoryActions, dispatch),
     dispatch
   }
 }

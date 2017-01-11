@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
     },
     categoryId: {
       type: Sequelize.INTEGER,
-      defaultValue: 0,
+      defaultValue: 1,
     },
     creatorId: {
       type: Sequelize.INTEGER,
@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
     unique: ['name'],
     includes: {
       creator: 'user',
-      parent: 'disease',
+      category: 'category',
     },
     sort: {
       default: 'createdAt',

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 import Header from './Header';
 import ContentWrapper from './ContentWrapper';
 import Footer from './Footer';
@@ -10,10 +11,13 @@ import { SessionActions } from '../session/redux/actions';
 class App extends Component {
 
   componentWillMount() {
-    if (!this.props.auth.isAuthenticated) {
-      return browserHistory.push('/')
+    const now = moment(),
+          expiredAt = moment(localStorage.getItem('expiredAt'));
+    if (!this.props.auth.isAuthenticated || expiredAt.diff(now) <= 0) {
+      localStorage.clear();
+      return browserHistory.push('/');
     }
-		this.props.sessionActions.fetchProfile()
+		this.props.sessionActions.fetchProfile();
   }
 
   render() {

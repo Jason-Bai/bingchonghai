@@ -9,8 +9,8 @@ import {
 } from 'antd';
 
 import { ActionBar, Breadcrumb } from '../components'
-
-import * as CategoryActions from './redux/actions';
+import * as CategoryActions from '../category/redux/actions';
+import * as DiseaseActions from './redux/actions';
 
 import config from '../config';
 
@@ -55,13 +55,12 @@ class CategoryCreate extends Component {
       if (err) {
         return
       }
-      let category = {
+      let disease = {
         name: values.name,
-        level: +values.level,
-        parentId: values.parentId
+        categoryId: values.categoryId
       };
-      return this.props.categoryActions.create(category).then(() => {
-        browserHistory.push('/admin/categories');
+      return this.props.diseaseActions.create(disease).then(() => {
+        browserHistory.push('/admin/diseases');
       });
 	  });
   }
@@ -70,7 +69,7 @@ class CategoryCreate extends Component {
 		this.props.form.resetFields();
 	}
 
-  buildFatherOptions = () => {
+  buildCategoryOptions = () => {
     return _.map(this.props.categories.list, (category) => {
       const id = category.id.toString();
       return <Option key={id} value={id}>{category.name}</Option>
@@ -110,30 +109,12 @@ class CategoryCreate extends Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Level: "
+            label="Category: "
             hasFeedback
           >
-            {getFieldDecorator('level', {
-              rules: [{
-                required: true, message: 'Please select a level!',
-              }],
-              initialValue: '0'
-            })(
+            {getFieldDecorator('categoryId')(
               <Select>
-                <Option value="0">Level 1</Option>
-                <Option value="1">Level 2</Option>
-                <Option value="2">Level 3</Option>
-              </Select>
-            )}
-          </FormItem>
-          <FormItem
-            {...formItemLayout}
-            label="Father: "
-            hasFeedback
-          >
-            {getFieldDecorator('parentId')(
-              <Select>
-                {this.buildFatherOptions()}
+                {this.buildCategoryOptions()}
               </Select>
             )}
           </FormItem>
@@ -161,6 +142,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     categoryActions: bindActionCreators(CategoryActions, dispatch),
+    diseaseActions: bindActionCreators(DiseaseActions, dispatch),
     dispatch
   }
 }

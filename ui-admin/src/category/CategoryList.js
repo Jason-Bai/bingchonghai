@@ -52,10 +52,9 @@ class CategoryList extends Component {
     dataIndex: 'level',
     key: 'level',
     render: (text, record) => {
-      const level = record.level + '',
-            context = { categoryActions: this.props.categoryActions, record: record };
+      const context = { categoryActions: this.props.categoryActions, record: record };
       return (
-        <Select defaultValue={level} style={{width: '100%'}} onChange={this.handleLevelChanged.bind(context)}>
+        <Select defaultValue={text} style={{width: '100%'}} onChange={this.handleLevelChanged.bind(context)}>
           {this.buildLevelOptions()}
         </Select>
       )
@@ -65,10 +64,9 @@ class CategoryList extends Component {
     dataIndex: 'parent.name',
     key: 'parent.name',
     render: (text, record) => {
-      const parent = record.parent.name,
-            context = { categoryActions: this.props.categoryActions, record: record };
+      const context = { categoryActions: this.props.categoryActions, record: record };
       return (
-        <Select defaultValue={parent} style={{width: '100%'}} onChange={this.handleParentChanged.bind(context)}>
+        <Select defaultValue={text} style={{width: '100%'}} onChange={this.handleParentChanged.bind(context)}>
           {this.buildParentOptions()}
         </Select>
       )
@@ -151,7 +149,8 @@ class CategoryList extends Component {
 					startIndex: (this.state.current - 1) * this.state.pageSize,
 					maxResults: this.state.pageSize,
           sort: '-createdAt',
-          onDelete: 'no'
+          onDelete: 'no',
+          includes: 'creator,parent'
         };
         if (v) {
           params.name = v;
@@ -186,7 +185,8 @@ class CategoryList extends Component {
 				startIndex: (current - 1) * pageSize,
 				maxResults: pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+        includes: 'creator,parent'
 			}
 
 			this.props.categoryActions.fetch(params);
@@ -200,7 +200,8 @@ class CategoryList extends Component {
 				startIndex: (current - 1) * this.state.pageSize,
 				maxResults: this.state.pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+        includes: 'creator,parent'
 			}
 
 			this.props.categoryActions.fetch(params);
