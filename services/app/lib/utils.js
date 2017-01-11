@@ -19,6 +19,7 @@ U.fs = require('fs');
 U.openRestAccessLog = require('open-rest-access-log');
 U.openRestWithMysql = require('open-rest-with-mysql');
 U.onFinished = require('on-finished');
+U.bunyan = require('bunyan');
 
 let utils = {
 
