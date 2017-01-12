@@ -12,8 +12,9 @@ class App extends Component {
 
   componentWillMount() {
     const now = moment(),
-          expiredAt = moment(localStorage.getItem('expiredAt'));
-    if (!this.props.auth.isAuthenticated || expiredAt.diff(now) <= 0) {
+          expiredAt = localStorage.getItem('expiredAt'),
+          expiredTime = moment(expiredAt);
+    if (!this.props.auth.isAuthenticated || !expiredAt || expiredTime.diff(now) <= 0) {
       localStorage.clear();
       return browserHistory.push('/');
     }

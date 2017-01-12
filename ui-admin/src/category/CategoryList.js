@@ -52,9 +52,10 @@ class CategoryList extends Component {
     dataIndex: 'level',
     key: 'level',
     render: (text, record) => {
-      const context = { categoryActions: this.props.categoryActions, record: record };
+      const context = { categoryActions: this.props.categoryActions, record: record },
+            name = 'Level ' + text;
       return (
-        <Select defaultValue={text} style={{width: '100%'}} onChange={this.handleLevelChanged.bind(context)}>
+        <Select defaultValue={name} style={{width: '100%'}} onChange={this.handleLevelChanged.bind(context)}>
           {this.buildLevelOptions()}
         </Select>
       )

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Card, Form, Icon, Input, Button, Checkbox, Row, Col, message } from 'antd';
 import { browserHistory } from 'react-router';
+import moment from 'moment';
 import { AuthActions } from './redux/actions';
 
 const FormItem = Form.Item;
@@ -15,7 +16,10 @@ export class Login extends Component {
 	}
 
   componentWillMount() {
-    if (!this.props.auth.isAuthenticated) {
+    const now = moment(),
+          expiredAt = localStorage.getItem('expiredAt'),
+          expiredTime = moment(expiredAt);
+    if (!this.props.auth.isAuthenticated || !expiredAt || expiredTime.diff(now) <= 0) {
       return browserHistory.push('/')
     }
     return browserHistory.push('/admin')
