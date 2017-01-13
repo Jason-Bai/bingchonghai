@@ -140,6 +140,7 @@ class CategoryList extends Component {
 
   actionBarConfig = {
     add: {
+      switch: true,
       buttonText: '新建',
       to: '/admin/categories/create'
     },

@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
   Table, Row, Col, Icon,
-  message, Modal, Radio
+	message, Modal, Radio, Select
 } from 'antd';
 
 import { ActionBar, Breadcrumb } from '../components'
 
-import * as UserActions from './redux/actions';
+import * as ArticleActions from './redux/actions';
 
 import config from '../config';
 
 const confirm = Modal.confirm;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+const Option = Select.Option;
 
-class UserList extends Component {
+class ArticleList extends Component {
 
   constructor(props) {
     super(props);
@@ -29,39 +30,28 @@ class UserList extends Component {
   }
 
   componentWillMount() {
-    const params = {
+    const articleParams = {
       sort: '-createdAt',
       startIndex: (this.state.current - 1) * this.state.pageSize,
-      maxResults: this.state.pageSize
-    }
-    this.props.userActions.fetch(params)
+      maxResults: this.state.pageSize,
+      includes: 'creator'
+    };
+
+    this.props.articleActions.fetch(articleParams);
   }
 
 	columns = [{
     title: 'ID',
     dataIndex: 'id',
-    key: 'id'
+    key: 'id',
   }, {
     title: '名称',
     dataIndex: 'name',
-    key: 'name'
+    key: 'name',
   }, {
-    title: '邮箱',
-    dataIndex: 'email',
-    key: 'email'
-  }, {
-    title: '角色',
-    dataIndex: 'role',
-    key: 'role',
-    render: (text, record) => {
-      const context = {userId: record.id, userActions: this.props.userActions}
-      return (
-        <RadioGroup defaultValue={record.role} size="small" onChange={this.handleRoleChanged.bind(context)}>
-          <RadioButton value="member">Member</RadioButton>
-          <RadioButton value="admin">Admin</RadioButton>
-        </RadioGroup>
-      )
-    }
+    title: '创建人',
+    dataIndex: 'creator.name',
+    key: 'creator.name',
   }, {
     title: '创建时间',
     dataIndex: 'createdAt',
@@ -72,27 +62,14 @@ class UserList extends Component {
           {moment(record.createdAt).format(config.timeFormat)}
         </span>
       )
-    }
-  }, {
-    title: '状态',
-    dataIndex: 'status',
-    key: 'status',
-    render: (text, record) => {
-      const context = {userId: record.id, userActions: this.props.userActions}
-      return (
-        <RadioGroup defaultValue={record.status} size="small" onChange={this.handleStatusChanged.bind(context)}>
-          <RadioButton value="enabled">Enabled</RadioButton>
-          <RadioButton value="disabled">Disabled</RadioButton>
-        </RadioGroup>
-      )
-    }
+    },
   }, {
     title: '操作',
     dataIndex: 'operations',
     key: 'operations',
     className: 'text-center',
     render: (text, record) => {
-      const context = {userId: record.id, userActions: this.props.userActions}
+      const context = {articleId: record.id, diseaseActions: this.props.diseaseActions}
       return (
         <div className="operations">
           <Link className="text-red" onClick={this.handleRemove.bind(context)}>
@@ -103,36 +80,26 @@ class UserList extends Component {
     }
   }]
 
+  buildCategoryOptions = () => {
+    return _.map(this.props.categories.list, (category) => {
+      const id = category.id.toString();
+      return <Option key={id} value={id}>{category.name}</Option>
+    })
+  }
+
   handleRemove() {
     const _this = this;
 	  confirm({
       title: '删除',
       content: '确认删除吗？',
       onOk() {
-        _this.userActions.remove({id: _this.userId})
+        _this.articleActions.remove({id: _this.diseaseId})
       },
       onCancel() {},
     });
   }
 
-  handleRoleChanged(e) {
-    e.preventDefault();
-    const role = e.target.value;
-    this.userActions.modify({role}, {id: this.userId});
-  }
-
-  handleStatusChanged(e) {
-    e.preventDefault();
-    const status = e.target.value;
-    this.userActions.modify({status}, {id: this.userId});
-  }
-
   actionBarConfig = {
-    add: {
-      switch: true,
-      buttonText: '新建',
-      to: '/admin/users/create'
-    },
     search: {
       placeholder: '请输入名称搜索',
       onSearch: (v) => {
@@ -140,12 +107,13 @@ class UserList extends Component {
 					startIndex: (this.state.current - 1) * this.state.pageSize,
 					maxResults: this.state.pageSize,
           sort: '-createdAt',
-          onDelete: 'no'
+          onDelete: 'no',
+					includes: 'creator'
         };
         if (v) {
           params.name = v;
         }
-        this.props.userActions.fetch(params).then(() => {
+        this.props.articleActions.fetch(params).then(() => {
           $('.ant-input-search').val('')
         })
       }
@@ -157,13 +125,13 @@ class UserList extends Component {
     icon: 'home',
     to: '/'
   }, {
-    name: '用户列表',
-    icon: 'team',
-    to: '/admin/users'
+    name: '病害列表',
+    icon: 'tags',
+    to: '/admin/articles'
   }]
 
   pagination = {
-    total: this.props.users.count,
+    total: this.props.articles.count,
     showSizeChanger: true,
     onShowSizeChange: (current, pageSize) => {
 			this.setState({
@@ -175,10 +143,11 @@ class UserList extends Component {
 				startIndex: (current - 1) * pageSize,
 				maxResults: pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+				includes: 'creator'
 			}
 
-			this.props.userActions.fetch(params);
+			this.props.articleActions.fetch(params);
     },
     onChange: (current) => {
 			this.setState({
@@ -189,10 +158,11 @@ class UserList extends Component {
 				startIndex: (current - 1) * this.state.pageSize,
 				maxResults: this.state.pageSize,
 				sort: '-createdAt',
-				isDelete: 'no'
+				isDelete: 'no',
+				includes: 'creator'
 			}
 
-			this.props.userActions.fetch(params);
+			this.props.articleActions.fetch(params);
     },
   }
 
@@ -204,7 +174,7 @@ class UserList extends Component {
         <Table
           rowKey="id"
           pagination={this.pagination}
-          dataSource={this.props.users.list}
+          dataSource={this.props.articles.list}
           columns={this.columns}
           size="middle"
           bordered />
@@ -215,15 +185,15 @@ class UserList extends Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    articles: state.articles
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    userActions: bindActionCreators(UserActions, dispatch),
+    articleActions: bindActionCreators(ArticleActions, dispatch),
     dispatch
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

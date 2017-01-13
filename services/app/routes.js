@@ -25,4 +25,7 @@ module.exports = (r) => {
 
   /** 病害接口 */
   r.resource('disease');
+
+  /** 文章接口 */
+  r.resource('article');
 };

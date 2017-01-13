@@ -124,6 +124,7 @@ class DiseaseList extends Component {
 
   actionBarConfig = {
     add: {
+      switch: true,
       buttonText: '新建',
       to: '/admin/diseases/create'
     },

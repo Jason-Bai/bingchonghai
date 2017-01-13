@@ -14,9 +14,11 @@ export default class ActionBar extends Component {
             <Search {...search} />
           </Col>
           <Col span={2} order={2} offset={18}>
+            { add && add.switch && (
             <Link to={add.to}>
               <Button type="primary" icon="plus" style={{width: '100%'}}>{add.buttonText}</Button>
             </Link>
+            )}
           </Col>
         </Row>
       </div>

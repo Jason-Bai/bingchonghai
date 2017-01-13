@@ -44,9 +44,19 @@ class Header extends Component {
 									onClick={this.handleClick}
                   selectedKeys={[this.state.current]}
                   mode="horizontal">
+										<MenuItem key="write">
+                      <Link to="/admin/articles/create">
+											  写文章
+                      </Link>
+										</MenuItem>
 										<MenuItem key="home">
                       <Link to="/admin">
 											  <Icon type="home" />首页
+                      </Link>
+										</MenuItem>
+										<MenuItem key="article">
+                      <Link to="/admin/articles">
+											  <Icon type="file-text" />文章管理
                       </Link>
 										</MenuItem>
 										<MenuItem key="team">

@@ -14,9 +14,19 @@ module.exports = function relations(Models) {
     as: 'creator',
     foreignKey: 'creatorId',
   });
-  /** 每个分类唯一属于一个用户 **/
+  /** 每个分类唯一属于一个分类 **/
   Models.disease.belongsTo(Models.category, {
     as: 'category',
     foreignKey: 'categoryId',
+  });
+  /** 每个分类唯一属于一个用户 **/
+  Models.article.belongsTo(Models.user, {
+    as: 'creator',
+    foreignKey: 'creatorId',
+  });
+  /** 每个分类唯一属于一个病害 **/
+  Models.article.belongsTo(Models.disease, {
+    as: 'disease',
+    foreignKey: 'diseaseId',
   });
 };
