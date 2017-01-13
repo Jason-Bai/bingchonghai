@@ -28,4 +28,7 @@ module.exports = (r) => {
 
   /** 文章接口 */
   r.resource('article');
+
+  /** 文件上传接口 */
+  r.post('/files', 'file#add');
 };

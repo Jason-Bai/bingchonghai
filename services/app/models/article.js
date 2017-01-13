@@ -36,6 +36,14 @@ module.exports = (sequelize) => {
     diseaseId: {
       type: Sequelize.INTEGER.UNSIGNED,
       defaultValue: 1,
+    },
+    visit: {
+      type: Sequelize.INTEGER.UNSIGNED,
+      defaultValue: 1,
+    },
+    comment: {
+      type: Sequelize.INTEGER.UNSIGNED,
+      defaultValue: 1,
     }
   }, {
     comment: '文章表',
@@ -54,17 +62,17 @@ module.exports = (sequelize) => {
       allow: ['title', 'content', 'diseaseId', 'creatorId', 'updatedAt', 'createdAt'],
     },
     writableCols: [
-      'title', 'content', 'diseaseId', 'creatorId',
+      'title', 'content', 'diseaseId', 'creatorId', 'visit', 'comment',
     ],
     editableCols: [
-      'title', 'content', 'diseaseId', 'creatorId',
+      'title', 'content', 'diseaseId', 'creatorId',, 'visit', 'comment',
     ],
     /** 只有管理员才可以修改的字段 */
-    onlyAdminCols: ['title', 'content', 'isPublish', 'diseaseId'],
+    onlyAdminCols: ['title', 'content', 'isPublish', 'diseaseId', 'visit', 'comment',],
 
     /** 定义允许包含返回的字段，不设置为全部 */
     allowIncludeCols: [
-      'title', 'content', 'isPublish', 'isDelete', 'diseaseId', 'createdAt',
+      'title', 'content', 'isPublish', 'isDelete', 'diseaseId', 'createdAt', 'visit', 'comment',
     ],
   });
   return Article;
