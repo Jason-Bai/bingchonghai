@@ -45,9 +45,17 @@ class ArticleList extends Component {
     dataIndex: 'id',
     key: 'id',
   }, {
-    title: '名称',
-    dataIndex: 'name',
-    key: 'name',
+    title: '标题',
+    dataIndex: 'title',
+    key: 'title',
+  }, {
+    title: '访问量',
+    dataIndex: 'visit',
+    key: 'visit'
+  }, {
+    title: '评论量',
+    dataIndex: 'comment',
+    key: 'comment'
   }, {
     title: '创建人',
     dataIndex: 'creator.name',
@@ -69,9 +77,14 @@ class ArticleList extends Component {
     key: 'operations',
     className: 'text-center',
     render: (text, record) => {
-      const context = {articleId: record.id, diseaseActions: this.props.diseaseActions}
+      const context = {articleId: record.id, diseaseActions: this.props.diseaseActions},
+            previewUrl = `/admin/articles/${record.id}/preview`;
       return (
         <div className="operations">
+          <Link to={previewUrl} title="预览">
+            <Icon type="eye" />
+          </Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;
           <Link className="text-red" onClick={this.handleRemove.bind(context)}>
             <Icon type="delete" />
           </Link>

@@ -20,11 +20,11 @@ module.exports = (sequelize) => {
       type: Sequelize.type('string', 20),
       allowNull: false,
     },
-    path: {
+    url: {
       type: Sequelize.type('string', 255),
       allowNull: false,
       get() {
-        return `${config.upload.accessUrl}/${this.getDataValue('path')}`;
+        return `${config.upload.accessUrl}/${this.getDataValue('url')}`;
       },
     },
     bytes: {
@@ -51,17 +51,17 @@ module.exports = (sequelize) => {
       allow: ['name', 'extension', 'bytes', 'creatorId', 'updatedAt', 'createdAt'],
     },
     writableCols: [
-      'name', 'extension', 'path', 'bytes', 'creatorId',
+      'name', 'extension', 'url', 'bytes', 'creatorId',
     ],
     editableCols: [
-      'name', 'extension', 'path', 'bytes', 'creatorId',
+      'name', 'extension', 'url', 'bytes', 'creatorId',
     ],
     /** 只有管理员才可以修改的字段 */
     onlyAdminCols: ['name'],
 
     /** 定义允许包含返回的字段，不设置为全部 */
     allowIncludeCols: [
-      'name', 'extension', 'path', 'bytes', 'creatorId',
+      'name', 'extension', 'url', 'bytes', 'creatorId',
     ],
   });
   return File;

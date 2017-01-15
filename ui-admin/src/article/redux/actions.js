@@ -12,7 +12,10 @@ import {
   MODIFY_ARTICLE_FAILURE,
   REMOVE_ARTICLE_REQUEST,
   REMOVE_ARTICLE_SUCCESS,
-  REMOVE_ARTICLE_FAILURE
+  REMOVE_ARTICLE_FAILURE,
+  DETAIL_ARTICLE_REQUEST,
+  DETAIL_ARTICLE_SUCCESS,
+  DETAIL_ARTICLE_FAILURE
 } from './constants';
 
 function requestCategorys() {
@@ -113,6 +116,27 @@ export function remove(params) {
     }).catch((error) => {
       dispatch({
         type: REMOVE_ARTICLE_FAILURE,
+        payload: {
+          message: error.response.data
+        }
+      })
+    })
+  }
+}
+
+export function detail(params) {
+  return dispatch => {
+    dispatch({
+      type: DETAIL_ARTICLE_REQUEST
+    })
+    return articleHttp.detail(params).then(response => {
+      dispatch({
+        type: DETAIL_ARTICLE_SUCCESS,
+        payload: response.data
+      })
+    }).catch((error) => {
+      dispatch({
+        type: DETAIL_ARTICLE_FAILURE,
         payload: {
           message: error.response.data
         }

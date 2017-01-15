@@ -149,13 +149,13 @@ CREATE TABLE `file` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `extension` varchar(255) NOT NULL,
-  `path` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
   `bytes` int(10) unsigned NOT NULL DEFAULT '0',
   `creatorId` int(10) unsigned NOT NULL DEFAULT '0',
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=327 DEFAULT CHARSET=utf8 COMMENT='上传文件表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='上传文件表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
@@ -7,12 +8,36 @@ import {
 	Form, Input, Icon, Select,
 	message, Radio, Button
 } from 'antd';
+import marked from 'marked';
 
-import { ActionBar, Breadcrumb } from '../components'
+import { ActionBar, Breadcrumb, PicturesWall } from '../components'
 import * as ArticleActions from './redux/actions';
+import * as FileActions from '../file/redux/actions';
 
 import config from '../config';
 import utils from '../utils';
+
+/*
+let renderer = new marked.Renderer();
+
+const image = marked.Renderer.prototype.image;
+
+marked.Renderer.prototype.image = function(href, title, text) {
+  const out = image.apply(this, [href, title, text]);
+  return "<div class=\"image-item\">" + out  + "</div>";
+};
+
+renderer.heading = function (text, level) {
+  var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+
+  return '<h' + level + '><a name="' +
+                escapedText +
+                 '" class="anchor" href="#' +
+                 escapedText +
+                 '"><span class="header-link"></span></a>' +
+                  text + '</h' + level + '>';
+};
+*/
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -24,27 +49,30 @@ class ArticleCreate extends Component {
 
   constructor(props) {
     super(props);
-    this.handleTitleChanged = this.handleTitleChanged.bind(this);
-    this.handleContentChanged = this.handleContentChanged.bind(this);
+    this.handleFileChanged = this.handleFileChanged.bind(this);
+  }
+
+  componentWillMount() {
+    const fileParams = {
+      isDelete: 'no',
+      startIndex: 0,
+      maxResults: 10
+    };
+    this.props.fileActions.fetch(fileParams);
   }
 
   state = {
-    title: '',
-    content: ''
+    value: '## hello world'
   }
 
   handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.form.validateFieldsAndScroll((err, values) => {
+		this.props.form.validateFieldsAndScroll((err, article) => {
       if (err) {
         return
       }
-      let disease = {
-        name: values.name,
-        categoryId: values.categoryId
-      };
-      return this.props.diseaseActions.create(disease).then(() => {
-        browserHistory.push('/admin/diseases');
+      return this.props.articleActions.create(article).then(() => {
+        browserHistory.push('/admin/articles');
       });
 	  });
   }
@@ -53,20 +81,24 @@ class ArticleCreate extends Component {
 		this.props.form.resetFields();
 	}
 
-  handleTitleChanged(e) {
-    const title = e.target.value;
-    console.log(title);
-    this.setState({
-      title
-    });
-  }
-
-  handleContentChanged(e) {
-    const content = utils.md.render(e.target.value);
-    console.log(content);
-    this.setState({
-      content
-    });
+  handleFileChanged(file, fileList, event) {
+    const content = this.props.form.getFieldValue('content');
+    if (file.response) {
+      const image = `![${file.response.name}](${file.response.url})`
+      let _content
+      if (!content) {
+        _content = image;
+      } else {
+        if (content.indexOf(image) === -1) {
+          _content = content + '\n' + image;
+        } else {
+          _content = content;
+        }
+      }
+      this.props.form.setFieldsValue({
+        content: _content
+      });
+    }
   }
 
   render() {
@@ -85,53 +117,72 @@ class ArticleCreate extends Component {
 				    )}
           </Col>
         </Row>
-        <Form horizontal onSubmit={this.handleSubmit}>
-				  <Row>
-				    <Col span={24}>
-				    	<FormItem style={{textAlign: 'right'}}>
-				    		<Button type="primary" htmlType="submit">添加</Button>
-				    		<Button style={{marginLeft: 8}} onClick={this.handleReset}>重置</Button>
-				    	</FormItem>
-				    </Col>
-				  </Row>
- 				  <FormItem
-            {...formItemLayout}
-            label=""
-            hasFeedback
-          >
-            {getFieldDecorator('title', {
-              rules: [{
-                required: true, min: 2, max: 30, message: 'Please input title!',
-              }],
-            })(
-              <Input placeholder="无标题文章" onChange={this.handleTitleChanged}/>
-            )}
-          </FormItem>
- 				  <FormItem
-            {...formItemLayout}
-            label=""
-            hasFeedback
-          >
-            {getFieldDecorator('content')(
-              <Input type="textarea" rows={100} onChange={this.handleContentChanged}/>
-            )}
-          </FormItem>
-        </Form>
+        <Row>
+          <Col span={24}>
+            <PicturesWall {...this.props} handleFileChanged={this.handleFileChanged}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Form horizontal onSubmit={this.handleSubmit}>
+ 				      <FormItem
+                {...formItemLayout}
+                label=""
+                hasFeedback
+              >
+                {getFieldDecorator('title', {
+                  rules: [{
+                    required: true, min: 2, max: 30, message: 'Please input title!',
+                  }],
+                })(
+                  <Input placeholder="无标题文章" className="article-title" />
+                )}
+              </FormItem>
+ 				      <FormItem
+                {...formItemLayout}
+                label=""
+                hasFeedback
+              >
+                {getFieldDecorator('content')(
+                  <Input type="textarea" className="article-content" rows={50} />
+                )}
+              </FormItem>
+				      <Row>
+				        <Col span={24}>
+				        	<FormItem style={{textAlign: 'right'}}>
+				        		<Button type="primary" htmlType="submit">添加</Button>
+				        		<Button style={{marginLeft: 8}} onClick={this.handleReset}>重置</Button>
+				        	</FormItem>
+				        </Col>
+				      </Row>
+            </Form>
+          </Col>
+          <Col span={12} className="preview">
+            <h1 className="title">{this.props.form.getFieldValue('title')}</h1>
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{
+                __html: marked(this.props.form.getFieldValue('content') || '', {sanitize: true})
+              }}
+             />
+          </Col>
+        </Row>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-	const { categories } = state;
+	const { files } = state;
   return {
-    categories
+    files
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    categoryActions: bindActionCreators(ArticleActions, dispatch),
+    articleActions: bindActionCreators(ArticleActions, dispatch),
+    fileActions: bindActionCreators(FileActions, dispatch),
     dispatch
   }
 }

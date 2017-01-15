@@ -23,13 +23,13 @@ class App extends Component {
 
   render() {
     const { dispatch, auth } = this.props;
-    const { isAuthenticated, errorMessage } = auth;
     return (
       <div>
         <Header
           loggedIn={!!auth.isAuthenticated}
           router={this.context.router}
-          session={this.props.session}/>
+          session={this.props.session}
+        />
         <ContentWrapper {...this.props} />
         <Footer />
       </div>

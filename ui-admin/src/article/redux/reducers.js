@@ -3,14 +3,16 @@ const {
   FETCH_ARTICLE_REQUEST, FETCH_ARTICLE_SUCCESS, FETCH_ARTICLE_FAILURE,
   ADD_ARTICLE_REQUEST, ADD_ARTICLE_SUCCESS, ADD_ARTICLE_FAILURE,
   MODIFY_ARTICLE_REQUEST, MODIFY_ARTICLE_SUCCESS, MODIFY_ARTICLE_FAILURE,
-  REMOVE_ARTICLE_REQUEST, REMOVE_ARTICLE_SUCCESS, REMOVE_ARTICLE_FAILURE
+  REMOVE_ARTICLE_REQUEST, REMOVE_ARTICLE_SUCCESS, REMOVE_ARTICLE_FAILURE,
+  DETAIL_ARTICLE_REQUEST, DETAIL_ARTICLE_SUCCESS, DETAIL_ARTICLE_FAILURE
 } = require('./constants');
 
-function diseases(state = {
+function articles(state = {
     isFetching: false,
     list: [],
     count: 0,
     errMessage: '',
+    current: null,
   }, action) {
   switch (action.type) {
     case FETCH_ARTICLE_REQUEST:
@@ -87,9 +89,24 @@ function diseases(state = {
         isFetching: false,
         errMessage: action.payload.message,
       });
+    case DETAIL_ARTICLE_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    case DETAIL_ARTICLE_SUCCESS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        current: action.payload
+      });
+    case DETAIL_ARTICLE_FAILURE:
+      return Object.assign({}, state, {
+        isFetching: false,
+        current: null,
+        errMessage: action.payload.message,
+      });
     default:
       return state;
   }
 }
 
-export default diseases;
+export default articles;

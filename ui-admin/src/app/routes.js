@@ -32,6 +32,7 @@ export default (
       <Route path="articles">
         <IndexRoute component={Article.ArticleList} />
         <Route path="create" component={Article.ArticleCreate} />
+        <Route path=":articleId/preview" component={Article.ArticlePreview} />
       </Route>
     </Route>
   </Route>
