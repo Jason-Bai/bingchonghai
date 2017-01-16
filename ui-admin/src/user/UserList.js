@@ -137,8 +137,6 @@ class UserList extends Component {
       placeholder: '请输入名称搜索',
       onSearch: (v) => {
         let params = {
-					startIndex: (this.state.current - 1) * this.state.pageSize,
-					maxResults: this.state.pageSize,
           sort: '-createdAt',
           onDelete: 'no'
         };
