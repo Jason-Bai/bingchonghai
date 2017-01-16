@@ -180,6 +180,7 @@ class ArticleList extends Component {
   }
 
   render() {
+    this.pagination.total = this.props.articles.count;
     return (
       <div>
         <Breadcrumb items={this.breadCrumbs} />

@@ -195,6 +195,7 @@ class DiseaseList extends Component {
   }
 
   render() {
+    this.pagination.total = this.props.diseases.count;
     return (
       <div>
         <Breadcrumb items={this.breadCrumbs} />

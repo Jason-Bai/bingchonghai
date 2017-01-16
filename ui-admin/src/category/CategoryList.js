@@ -211,6 +211,7 @@ class CategoryList extends Component {
   }
 
   render() {
+    this.pagination.total = this.props.categories.count;
     return (
       <div>
         <Breadcrumb items={this.breadCrumbs} />

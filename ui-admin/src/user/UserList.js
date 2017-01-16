@@ -197,6 +197,7 @@ class UserList extends Component {
   }
 
   render() {
+    this.pagination.total = this.props.users.count;
     return (
       <div>
         <Breadcrumb items={this.breadCrumbs} />
