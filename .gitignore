@@ -35,5 +35,11 @@
 # Optional REPL history
 **/.node_repl_history
 
+# build
 **/build
 **/.nyc_output
+
+# mac
+.DS_Store
+**/.DS_Store
+
