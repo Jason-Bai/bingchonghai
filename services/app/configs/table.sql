@@ -112,6 +112,7 @@ DROP TABLE IF EXISTS `disease`;
 CREATE TABLE `disease` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `type` enum('disease','pest') DEFAULT 'disease',
   `isDelete` enum('yes','no') DEFAULT 'no',
   `categoryId` int(11) DEFAULT '0',
   `creatorId` int(11) DEFAULT '0',

@@ -15,6 +15,11 @@ module.exports = (sequelize) => {
       type: Sequelize.type('string', 30),
       allowNull: false,
     },
+    type: {
+      type: Sequelize.ENUM,
+      values: ['disease', 'pest'],
+      defaultValue: 'disease',
+    },
     isDelete: {
       type: Sequelize.ENUM,
       values: ['yes', 'no'],
@@ -42,20 +47,20 @@ module.exports = (sequelize) => {
     },
     sort: {
       default: 'createdAt',
-      allow: ['name', 'isDelete', 'categoryId', 'creatorId', 'updatedAt', 'createdAt'],
+      allow: ['name', 'type', 'isDelete', 'categoryId', 'creatorId', 'updatedAt', 'createdAt'],
     },
     writableCols: [
-      'name', 'categoryId', 'creatorId',
+      'name', 'type', 'categoryId', 'creatorId',
     ],
     editableCols: [
-      'name', 'categoryId', 'creatorId',
+      'name', 'type', 'categoryId', 'creatorId',
     ],
     /** 只有管理员才可以修改的字段 */
-    onlyAdminCols: ['name'],
+    onlyAdminCols: ['name', 'type'],
 
     /** 定义允许包含返回的字段，不设置为全部 */
     allowIncludeCols: [
-      'name', 'isDelete', 'categoryId', 'createdAt',
+      'name', 'type', 'isDelete', 'categoryId', 'createdAt',
     ],
   });
   return Disease;
