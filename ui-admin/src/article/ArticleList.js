@@ -122,7 +122,7 @@ class ArticleList extends Component {
 					includes: 'creator'
         };
         if (v) {
-          params.name = v;
+          params.title = v;
         }
         this.props.articleActions.fetch(params).then(() => {
           $('.ant-input-search').val('')
