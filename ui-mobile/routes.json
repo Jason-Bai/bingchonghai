@@ -17,7 +17,15 @@
     "page": "./pages/about"
   },
   {
-    "path": "/tasks/:status(pending|completed)?",
-    "page": "./pages/home"
+    "path": "/policy",
+    "page": "./pages/policy"
+  },
+  {
+    "path": "/category",
+    "page": "./pages/category"
+  },
+  {
+    "path": "/news",
+    "page": "./pages/news"
   }
 ]
