@@ -160,6 +160,67 @@ CREATE TABLE `file` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+DROP TABLE IF EXISTS `policy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `policy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `content` TEXT NULL,
+  `type` enum('subsidy', 'notice') DEFAULT 'notice',
+  `isPublish` enum('yes','no') DEFAULT 'no',
+  `isDelete` enum('yes','no') DEFAULT 'no',
+  `diseaseId` int(11) DEFAULT '0',
+  `creatorId` int(11) DEFAULT '0',
+  `visit` int(11) DEFAULT '0',
+  `comment` int(11) DEFAULT '0',
+  `source` varchar(255) DEFAULT '',
+  `author` varchar(20) DEFAULT '',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='农业政策表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+DROP TABLE IF EXISTS `price`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zone` enum('nc', 'sc', 'wc', 'ec', 'nw', 'ne') DEFAULT 'nc',
+  `category` varchar(50) NOT NULL,
+  `product` varchar(50) NOT NULL,
+  `date` datetime NOT NULL,
+  `unit` enum('g', 'kg', 'ton') DEFAULT 'g',
+  `location` varchar(255) DEFAULT '',
+  `contact` varchar(10) NOT NULL,
+  `position` enum('manager', 'employee') DEFAULT 'employee',
+  `mobile` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `creatorId` int(11) DEFAULT '0',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='农业价格表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+DROP TABLE IF EXISTS `order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `content` TEXT  NOT NULL,
+  `isDelete` enum('yes','no') DEFAULT 'no',
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

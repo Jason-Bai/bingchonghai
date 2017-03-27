@@ -31,4 +31,13 @@ module.exports = (r) => {
 
   /** 文件接口 */
   r.resource('file');
+
+  /** 农业政策接口 */
+  r.resource('policy');
+
+  /** 农业价格接口 */
+  r.resource('price');
+
+  /** 订单接口 */
+  r.resource('order');
 };
