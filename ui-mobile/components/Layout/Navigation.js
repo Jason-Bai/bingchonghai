@@ -11,6 +11,10 @@
 import React from 'react';
 import Link from '../Link';
 
+import config from '../../tools/config';
+
+const { routers } = config;
+
 class Navigation extends React.Component {
 
   componentDidMount() {
@@ -24,8 +28,11 @@ class Navigation extends React.Component {
   render() {
     return (
       <nav className="mdl-navigation" ref={node => (this.root = node)}>
-        <Link className="mdl-navigation__link" to="/">Home</Link>
-        <Link className="mdl-navigation__link" to="/about">About</Link>
+        {routers.map((router) => {
+          return (
+            <Link className="mdl-navigation__link" to={router.uri}>{router.name}</Link>
+          );
+        })}
       </nav>
     );
   }

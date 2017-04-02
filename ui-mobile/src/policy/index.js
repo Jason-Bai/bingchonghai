@@ -8,29 +8,19 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Layout from '../../components/Layout';
 import s from './styles.css';
 
-const title = '首页';
+const title = '农业政策';
 
-class HomePage extends React.Component {
-
-  static propTypes = {};
+class PolicyPage extends React.Component {
 
   componentDidMount() {
     document.title = title;
   }
 
   render() {
-
-    /*
-    <div
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
-    <h4>Articles</h4>
-    */
     return (
       <Layout className={s.content}>
         <h4>{title}</h4>
@@ -40,4 +30,4 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage;
+export default PolicyPage;
