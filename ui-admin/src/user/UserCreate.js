@@ -7,6 +7,7 @@ import {
 	Form, Input, Icon, Select,
 	message, Radio, Button
 } from 'antd';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb } from '../components'
 
@@ -61,7 +62,7 @@ class UserCreate extends Component {
     };
 
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
 				<Row>
 				  <Col span={15} offset={4}>
@@ -120,7 +121,7 @@ class UserCreate extends Component {
 				  	</Col>
 				  </Row>
         </Form>
-      </div>
+      </ContentWrapper>
     )
   }
 }

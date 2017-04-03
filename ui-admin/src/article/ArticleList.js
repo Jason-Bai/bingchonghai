@@ -7,6 +7,8 @@ import {
 	message, Modal, Radio, Select
 } from 'antd';
 
+import ContentWrapper from '../app/ContentWrapper';
+
 import { ActionBar, Breadcrumb } from '../components'
 
 import * as ArticleActions from './redux/actions';
@@ -180,7 +182,7 @@ class ArticleList extends Component {
   render() {
     this.pagination.total = this.props.articles.count;
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
         <ActionBar {...this.actionBarConfig} />
         <Table
@@ -190,7 +192,7 @@ class ArticleList extends Component {
           columns={this.columns}
           size="middle"
           bordered />
-      </div>
+      </ContentWrapper>
     )
   }
 }

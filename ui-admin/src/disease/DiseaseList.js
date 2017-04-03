@@ -6,6 +6,7 @@ import {
   Table, Row, Col, Icon,
 	message, Modal, Radio, Select
 } from 'antd';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb } from '../components'
 
@@ -195,7 +196,7 @@ class DiseaseList extends Component {
   render() {
     this.pagination.total = this.props.diseases.count;
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
         <ActionBar {...this.actionBarConfig} />
         <Table
@@ -205,7 +206,7 @@ class DiseaseList extends Component {
           columns={this.columns}
           size="middle"
           bordered />
-      </div>
+      </ContentWrapper>
     )
   }
 }

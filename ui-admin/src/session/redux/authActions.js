@@ -48,7 +48,7 @@ export function loginUser(creds) {
         localStorage.setItem('refresh_token', response.data.auth.refreshToken);
         localStorage.setItem('expiredAt', response.data.auth.expiredAt);
         dispatch(receiveLogin(response.data));
-        browserHistory.push('/admin');
+        browserHistory.push('/admin/dashboard');
       }
     }).catch(err => console.log('Error: ', err))
   }
@@ -86,11 +86,11 @@ export function logoutUser() {
     return logout().then(response => {
       if (!response || !response.data) {
         dispatch(logoutError(response.data.message));
-        browserHistory.push('/');
+        browserHistory.push('/admin/login');
       } else {
         localStorage.clear();
         dispatch(receiveLogout());
-        browserHistory.push('/');
+        browserHistory.push('/admin/login');
       }
     })
   }

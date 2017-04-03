@@ -50,7 +50,7 @@
 #nav .settings {
   width: 120px;
 }
-.main-wrapper {
+.content-wrapper {
   background: #fff;
   width: 92%;
   margin: 0 auto;
@@ -59,6 +59,10 @@
   padding: 24px 0 0;
   margin-bottom: 24px;
   position: relative;
+}
+.content-wrapper .content {
+  min-height: 500px;
+  padding: 0 4%;
 }
 .breadcrumb {
   height: 30px;

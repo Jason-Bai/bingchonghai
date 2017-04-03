@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import ContentWrapper from './ContentWrapper';
+
 
 class Home extends Component {
   render() {
     return (
-      <div className="content">
+      <ContentWrapper>
         Home
-      </div>
+      </ContentWrapper>
     )
   }
 }

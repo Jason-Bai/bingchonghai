@@ -9,6 +9,7 @@ import {
 	message, Radio, Button
 } from 'antd';
 import marked from 'marked';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb, PicturesWall } from '../components'
 import * as ArticleActions from './redux/actions';
@@ -109,7 +110,7 @@ class ArticleCreate extends Component {
     };
 
     return (
-      <div>
+      <ContentWrapper>
 				<Row>
 				  <Col span={15} offset={4}>
 				    { errorMessage && (
@@ -167,7 +168,7 @@ class ArticleCreate extends Component {
              />
           </Col>
         </Row>
-      </div>
+      </ContentWrapper>
     )
   }
 }

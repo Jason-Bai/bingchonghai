@@ -8,6 +8,7 @@ import {
 	message, Radio, Button
 } from 'antd';
 import marked from 'marked';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb, MarkdownEditor } from '../components'
 import * as ArticleActions from './redux/actions';
@@ -67,7 +68,7 @@ class ArticlePreview extends Component {
           content = marked(this.props.articles.current.content, {tables: true, sanitize: true});
 
     return (
-      <div className="preview">
+      <ContentWrapper className="preview">
         <h1 className="title">{title}</h1>
         <div
           className="content"
@@ -75,7 +76,7 @@ class ArticlePreview extends Component {
             __html: content
           }}
         />
-      </div>
+      </ContentWrapper>
     )
   }
 }

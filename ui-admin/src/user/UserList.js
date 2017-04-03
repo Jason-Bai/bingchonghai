@@ -6,6 +6,7 @@ import {
   Table, Row, Col, Icon,
   message, Modal, Radio
 } from 'antd';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb } from '../components'
 
@@ -197,7 +198,7 @@ class UserList extends Component {
   render() {
     this.pagination.total = this.props.users.count;
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
         <ActionBar {...this.actionBarConfig} />
         <Table
@@ -207,7 +208,7 @@ class UserList extends Component {
           columns={this.columns}
           size="middle"
           bordered />
-      </div>
+      </ContentWrapper>
     )
   }
 }

@@ -6,6 +6,7 @@ import {
   Table, Row, Col, Icon,
 	message, Modal, Radio, Select
 } from 'antd';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb } from '../components'
 
@@ -211,7 +212,7 @@ class CategoryList extends Component {
   render() {
     this.pagination.total = this.props.categories.count;
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
         <ActionBar {...this.actionBarConfig} />
         <Table
@@ -221,7 +222,7 @@ class CategoryList extends Component {
           columns={this.columns}
           size="middle"
           bordered />
-      </div>
+      </ContentWrapper>
     )
   }
 }

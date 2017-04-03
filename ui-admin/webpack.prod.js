@@ -29,7 +29,7 @@ module.exports = {
   target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
   output: {
     path: path.join(__dirname, 'dist', 'assets'),
-    publicPath: '/assets/',
+    publicPath: '/admin/assets/',
     filename: '[name].js'
   },
   plugins: [

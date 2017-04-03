@@ -7,7 +7,7 @@ function Footer() {
       <Row>
         <Col className="ant-col-xs-22 ant-col-sm-22 ant-col-md-22 ant-col-lg-22" offset={1}>
           <div className="copyright">
-            Copyright © 病虫害有限责任公司 2017
+            Copyright © 内蒙古蓝天新农科技服务有限公司 2017
           </div>
         </Col>
       </Row>

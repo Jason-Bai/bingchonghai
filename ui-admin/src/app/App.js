@@ -16,7 +16,7 @@ class App extends Component {
           expiredTime = moment(expiredAt);
     if (!this.props.auth.isAuthenticated || !expiredAt || expiredTime.diff(now) <= 0) {
       localStorage.clear();
-      return browserHistory.push('/');
+      return browserHistory.push('/admin/login');
     }
 		this.props.sessionActions.fetchProfile();
   }
@@ -24,14 +24,8 @@ class App extends Component {
   render() {
     const { dispatch, auth } = this.props;
     return (
-      <div>
-        <Header
-          loggedIn={!!auth.isAuthenticated}
-          router={this.context.router}
-          session={this.props.session}
-        />
-        <ContentWrapper {...this.props} />
-        <Footer />
+      <div className="page-wrapper">
+        {this.props.children}
       </div>
     )
   }

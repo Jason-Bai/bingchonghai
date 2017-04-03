@@ -7,6 +7,7 @@ import {
 	Form, Input, Icon, Select,
 	message, Radio, Button
 } from 'antd';
+import ContentWrapper from '../app/ContentWrapper';
 
 import { ActionBar, Breadcrumb } from '../components'
 import * as CategoryActions from '../category/redux/actions';
@@ -84,7 +85,7 @@ class CategoryCreate extends Component {
     };
 
     return (
-      <div>
+      <ContentWrapper>
         <Breadcrumb items={this.breadCrumbs} />
 				<Row>
 				  <Col span={15} offset={4}>
@@ -127,7 +128,7 @@ class CategoryCreate extends Component {
 				    </Col>
 				  </Row>
         </Form>
-      </div>
+      </ContentWrapper>
     )
   }
 }

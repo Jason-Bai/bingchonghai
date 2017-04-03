@@ -32,7 +32,7 @@ class Header extends Component {
       <header id="header">
         <Row>
           <Col className="ant-col-xs-24 ant-col-sm-24 ant-col-md-6 ant-col-lg-4">
-						<a id="logo" href="/">
+						<a id="logo" href="/admin">
 							<img alt="logo" src={logo} />
 							<span>Bingchonghai</span>
 						</a>
@@ -45,7 +45,7 @@ class Header extends Component {
                   selectedKeys={[this.state.current]}
                   mode="horizontal">
 										<MenuItem key="home">
-                      <Link to="/admin">
+                      <Link to="/admin/dashboard">
 										  	<Icon type="home" />首页
                       </Link>
 										</MenuItem>
@@ -76,7 +76,7 @@ class Header extends Component {
                         </Link>
 										  </MenuItem>
 										  <MenuItem key="logout">
-                        <Link to="/logout">
+                        <Link to="/admin/logout">
 										  	  <Icon type="logout" />退出
                         </Link>
 										  </MenuItem>
