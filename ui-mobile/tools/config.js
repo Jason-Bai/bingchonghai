@@ -14,16 +14,13 @@ module.exports = {
   project: 'nongziyuan',      // Firebase project. See README.md -> How to Deploy
   trackingID: 'UA-XXXXX-Y',                 // Google Analytics Site's ID
   routers: [{
-    name: '首页',
-    uri: '/'
-  }, {
     name: '农业政策',
     uri: '/policies'
   }, {
-    name: '病虫害查询',
+    name: '虫害防治',
     uri: '/diseases'
   }, {
-    name: '农产品价格',
+    name: '农品价格',
     uri: '/prices'
   }, {
     name: '关于我们',

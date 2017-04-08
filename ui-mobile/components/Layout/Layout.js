@@ -11,7 +11,9 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import Header from './Header';
+import Drawer from './Drawer';
 import Footer from '../Footer';
+//import { Header, Navigation, Drawer } from 'react-mdl';
 import s from './Layout.css';
 
 class Layout extends React.Component {
@@ -33,6 +35,7 @@ class Layout extends React.Component {
       <div className="mdl-layout mdl-js-layout" ref={node => (this.root = node)}>
         <div className="mdl-layout__inner-container">
           <Header />
+          <Drawer />
           <main className="mdl-layout__content">
             <div {...this.props} className={cx(s.content, this.props.className)} />
             <Footer />

@@ -15,7 +15,10 @@
   },
   {
     "path": "/policies",
-    "page": "./policy"
+    "page": "./policy",
+    "data": {
+      "policies": "GET /api_v1/policys"
+    }
   },
   {
     "path": "/diseases",

@@ -11,7 +11,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import Link from '../Link';
-import s from './Header.css';
+import s from './Drawer.css';
 
 import config from '../../tools/config';
 
@@ -28,13 +28,10 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <header className={`mdl-layout__header mdl-layout__header--scroll ${s.header}`} ref={node => (this.root = node)}>
-        <div className={`mdl-layout__header-row ${s.row}`}>
-          <Link className={`mdl-layout-title ${s.title}`} to="/">{title}</Link>
-          <div className="mdl-layout-spacer" />
-          <Navigation className={s.navigation} />
-        </div>
-      </header>
+      <div className={`mdl-layout__drawer ${s.drawer}`} ref={node => (this.root = node)}>
+        <Link className={`mdl-layout-title ${s.title}`} to="/">{title}</Link>
+        <Navigation />
+      </div>
     );
   }
 

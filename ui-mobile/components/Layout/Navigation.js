@@ -27,10 +27,10 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <nav className="mdl-navigation" ref={node => (this.root = node)}>
-        {routers.map((router) => {
+      <nav className={`mdl-navigation ${this.props.className || ''}` } ref={node => (this.root = node)}>
+        {routers.map((router, index) => {
           return (
-            <Link className="mdl-navigation__link" to={router.uri}>{router.name}</Link>
+            <Link key={index} className="mdl-navigation__link" to={router.uri}>{router.name}</Link>
           );
         })}
       </nav>
