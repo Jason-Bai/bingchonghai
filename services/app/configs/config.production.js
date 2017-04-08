@@ -7,4 +7,14 @@ config.db.name = 'openrest_production';
 config.db.user = 'openrest_w';
 config.db.pass = 'Maa3R%20oP3t';
 
+// allowGuestAccessPaths
+config.allowGuestAccessPaths = [
+  // 允许登陆
+  'POST /session',
+  // 允许注册
+  'POST /users',
+  // 农业政策
+  'GET /policys',
+]
+
 module.exports = config;

@@ -32,7 +32,6 @@ const Policy = U.model('policy');
  * @apiVersion 1.0.0
  */
 const list = [
-  helper.checker.sysAdmin(),
   helper.rest.list(Policy),
 ];
 
