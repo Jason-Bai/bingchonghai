@@ -20,13 +20,18 @@ const { title, utl } = config;
 class Header extends React.Component {
 
   componentDidMount() {
-    window.componentHandler.upgradeElement(this.root);
+    //window.componentHandler.upgradeElement(this.root);
   }
 
   componentWillUnmount() {
-    window.componentHandler.downgradeElements(this.root);
+    //window.componentHandler.downgradeElements(this.root);
   }
   render() {
+    return (
+      <header className={`page__hd ${s.header}`}>
+        <Navigation />
+      </header>
+    )
     return (
       <header className={`mdl-layout__header mdl-layout__header--scroll ${s.header}`} ref={node => (this.root = node)}>
         <div className={`mdl-layout__header-row ${s.row}`}>

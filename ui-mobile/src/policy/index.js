@@ -21,9 +21,21 @@ class PolicyPage extends React.Component {
   }
 
   render() {
+    const { policies } = this.props;
     return (
       <Layout className={s.content}>
         <h4>{title}</h4>
+        <div className="weui-cells">
+          {policies.map((policy, index) => {
+            return (
+              <div key={index} className="weui-cell weui-cell_access">
+                <div className="weui-cell__hd">{policy.type}</div>
+                <div className="weui-cell__bd">{policy.title}</div>
+                <div className="weui-cell__ft">{policy.visit}</div>
+              </div>
+            )
+          })}
+        </div>
       </Layout>
     );
   }

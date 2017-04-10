@@ -7,11 +7,14 @@
 * LICENSE.txt file in the root directory of this source tree.
 */
 
-.header {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
+.footer {
+	color: #999999;
+  font-size: 14px;
+  text-align: center;
+}
+.text {
+	padding: 0 .34em;
+  font-size: 12px;
 }
 @media screen and (max-width: 1024px) {
 }

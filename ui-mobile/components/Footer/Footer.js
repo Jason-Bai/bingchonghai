@@ -10,23 +10,12 @@
 
 import React from 'react';
 import Link from '../Link';
+import s from './Footer.css';
 
 function Footer() {
   return (
-    <footer className="mdl-mini-footer">
-      <div className="mdl-mini-footer__left-section">
-        <div className="mdl-logo">© 内蒙古蓝天新农科技服务有限公司</div>
-      </div>
-      <div className="mdl-mini-footer__right-section">
-        <ul className="mdl-mini-footer__link-list">
-          <li className="mdl-mini-footer--social-btn" style={{ backgroundColor: 'transparent' }}>
-            <a href="#" role="button" title="link1">link1</a>
-          </li>
-          <li className="mdl-mini-footer--social-btn" style={{ backgroundColor: 'transparent' }}>
-            <a href="#" role="button" title="link2">link2</a>
-          </li>
-        </ul>
-      </div>
+    <footer className={`footer ${s.footer}`}>
+      <div className={`weui-footer__text ${s.text}`}>Copyright © 2008-2017 内蒙古蓝天新农科技服务有限公司</div>
     </footer>
   );
 }

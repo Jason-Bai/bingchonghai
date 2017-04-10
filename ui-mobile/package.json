@@ -16,7 +16,9 @@
     "react-mdl": "^1.9.0",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-    "whatwg-fetch": "^2.0.3"
+    "weui": "^1.1.0",
+    "whatwg-fetch": "^2.0.3",
+    "zepto": "^1.2.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.5.1",
@@ -40,6 +42,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.2",
+    "exports-loader": "^0.6.4",
     "file-loader": "^0.10.1",
     "firebase-tools": "^3.5.0",
     "front-matter": "^2.1.2",
@@ -66,6 +69,7 @@
     "react-hot-loader": "^3.0.0-beta.2",
     "rimraf": "^2.6.1",
     "s3": "^4.4.0",
+    "script-loader": "^0.7.0",
     "style-loader": "^0.14.1",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",

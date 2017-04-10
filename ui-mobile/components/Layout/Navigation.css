@@ -8,26 +8,17 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-.container, .page {
-	position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.navbar {
+
 }
-.page {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  opacity: 1;
-  z-index: 1;
+.navbar_item {
 }
-.page__bd {
-	position: absolute;
-	top: 41px;
-	right: 0;
-	bottom: 41px;
-	left: 0;
+.navbar_item a {
+  height: 100%;
+  line-height: 100%;
+  display: block;
 }
-.content {
-  min-height: 500px;
+
+@media screen and (max-width: 1024px) {
+
 }

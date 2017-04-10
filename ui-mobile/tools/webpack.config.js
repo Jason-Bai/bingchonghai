@@ -24,6 +24,7 @@ const babelConfig = Object.assign({}, pkg.babel, {
   presets: pkg.babel.presets.map(x => x === 'latest' ? ['latest', { es2015: { modules: false } }] : x),
 });
 
+//    'react-mdl/extra/material.min.js',
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
 // http://webpack.github.io/docs/configuration.html
 const config = {
@@ -34,8 +35,7 @@ const config = {
   // The entry point for the bundle
   entry: [
     /* Material Design Lite (https://getmdl.io) */
-    '!!style-loader!css-loader!react-mdl/extra/material.min.css',
-    'react-mdl/extra/material.min.js',
+    '!!style-loader!css-loader!weui/dist/style/weui.min.css',
     /* The main entry point of your JavaScript application */
     './main.js',
   ],
@@ -159,6 +159,10 @@ const config = {
       {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
+      },
+      {
+        test: require.resolve('zepto'),
+        loader: 'exports-loader?window.Zepto!script-loader',
       },
     ],
   },
