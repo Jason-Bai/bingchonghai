@@ -176,6 +176,7 @@ CREATE TABLE `policy` (
   `comment` int(11) DEFAULT '0',
   `source` varchar(255) DEFAULT '',
   `author` varchar(20) DEFAULT '',
+  `postedAt` datetime NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)

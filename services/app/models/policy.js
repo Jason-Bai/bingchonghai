@@ -56,6 +56,12 @@ module.exports = (sequelize) => {
       allowNull: true,
 			defaultValue: '',
 		},
+    postedAt: {
+      type: Sequelize.type('date'),
+      allowNull: false,
+      defaultValue: Sequelize.NOW,
+      comment: '过期时间',
+    },
   }, {
     comment: '农业政策表',
     freezeTableName: true,
@@ -68,21 +74,21 @@ module.exports = (sequelize) => {
       creator: 'user',
     },
     sort: {
-      default: 'createdAt',
-      allow: ['title', 'content', 'creatorId', 'source', 'author', 'updatedAt', 'createdAt'],
+      default: 'id',
+      allow: ['id', 'title', 'content', 'creatorId', 'source', 'author', 'updatedAt', 'createdAt', 'postedAt',],
     },
     writableCols: [
-      'title', 'content', 'creatorId', 'source', 'author', 'visit', 'comment',
+      'title', 'content', 'creatorId', 'source', 'author', 'visit', 'comment', 'postedAt',
     ],
     editableCols: [
-      'title', 'content', 'creatorId', 'source', 'author', 'visit', 'comment',
+      'title', 'content', 'creatorId', 'source', 'author', 'visit', 'comment', 'postedAt',
     ],
     /** 只有管理员才可以修改的字段 */
-    onlyAdminCols: ['title', 'content', 'isPublish', 'source', 'author',],
+    onlyAdminCols: ['title', 'content', 'isPublish', 'source', 'author', 'postedAt',],
 
     /** 定义允许包含返回的字段，不设置为全部 */
     allowIncludeCols: [
-      'title', 'content', 'isPublish', 'isDelete', 'source', 'author', 'createdAt', 'visit', 'comment',
+      'title', 'content', 'isPublish', 'isDelete', 'source', 'author', 'createdAt', 'visit', 'comment', 'postedAt',
     ],
   });
   return Policy;

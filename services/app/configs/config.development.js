@@ -23,6 +23,8 @@ config.allowGuestAccessPaths = [
   'POST /users',
 	// 农业政策
 	'GET /policys',
-]
+  // 农业政策详情
+	'GET /policys/:id',
+];
 
 module.exports = config;
