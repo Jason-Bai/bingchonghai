@@ -28,5 +28,7 @@ module.exports = {
   }, {
     name: '关于我们',
     uri: '/about'
-  }]
+  }],
+  dateFormat: 'YYYY-MM-DD',
+  timeFormat: 'YYYY-MM-DD HH:mm:ss',
 };

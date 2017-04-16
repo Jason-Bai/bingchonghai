@@ -17,7 +17,14 @@
     "path": "/policies",
     "page": "./policy",
     "data": {
-      "policies": "GET /api_v1/policys"
+      "policies": "GET /api_v1/policys?sort=-id"
+    }
+  },
+  {
+    "path": "/policies/:id",
+    "page": "./policy/detail",
+    "data": {
+      "policy": "GET /api_v1/policys/id"
     }
   },
   {
