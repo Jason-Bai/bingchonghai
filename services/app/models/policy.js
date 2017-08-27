@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
       type: Sequelize.type('string', 50),
       allowNull: false,
     },
+    description: {
+      type: Sequelize.type('string', 50),
+      allowNull: false,
+    },
     content: {
       type: Sequelize.TEXT,
       defaultValue: '',

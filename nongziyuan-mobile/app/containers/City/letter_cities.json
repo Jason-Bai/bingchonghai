@@ -1,0 +1,1892 @@
+{
+    "A": [
+        {
+            "key": "/abagaqi",
+            "title": "阿巴嘎旗"
+        },
+        {
+            "key": "/aba",
+            "title": "阿坝"
+        },
+        {
+            "key": "/abaxian",
+            "title": "阿坝县"
+        },
+        {
+            "key": "/aershan",
+            "title": "阿尔山市"
+        },
+        {
+            "key": "/aheqi",
+            "title": "阿合奇县"
+        },
+        {
+            "key": "/akesai",
+            "title": "阿克塞哈萨克族自治县"
+        },
+        {
+            "key": "/akesudiqu",
+            "title": "阿克苏地区"
+        },
+        {
+            "key": "/akesu",
+            "title": "阿克苏市"
+        },
+        {
+            "key": "/aketao",
+            "title": "阿克陶县"
+        },
+        {
+            "key": "/alaer",
+            "title": "阿拉尔"
+        },
+        {
+            "key": "/alashankoushi",
+            "title": "阿拉山口市"
+        },
+        {
+            "key": "/alashan",
+            "title": "阿拉善"
+        },
+        {
+            "key": "/ayouqi",
+            "title": "阿拉善右旗"
+        },
+        {
+            "key": "/azuoqi",
+            "title": "阿拉善左旗"
+        },
+        {
+            "key": "/aletaidiqu",
+            "title": "阿勒泰地区"
+        },
+        {
+            "key": "/aletai",
+            "title": "阿勒泰市"
+        },
+        {
+            "key": "/ali",
+            "title": "阿里"
+        },
+        {
+            "key": "/alishan",
+            "title": "阿里山"
+        },
+        {
+            "key": "/aluqinqi",
+            "title": "阿鲁科尔沁旗"
+        },
+        {
+            "key": "/arongqi",
+            "title": "阿荣旗"
+        },
+        {
+            "key": "/citylist?c=A&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "B": [
+        {
+            "key": "/basu",
+            "title": "八宿县"
+        },
+        {
+            "key": "/bachu",
+            "title": "巴楚县"
+        },
+        {
+            "key": "/badong",
+            "title": "巴东县"
+        },
+        {
+            "key": "/balikun",
+            "title": "巴里坤哈萨克自治县"
+        },
+        {
+            "key": "/bayouqi",
+            "title": "巴林右旗"
+        },
+        {
+            "key": "/bazuoqi",
+            "title": "巴林左旗"
+        },
+        {
+            "key": "/bama",
+            "title": "巴马瑶族自治县"
+        },
+        {
+            "key": "/baqing",
+            "title": "巴青县"
+        },
+        {
+            "key": "/batang",
+            "title": "巴塘县"
+        },
+        {
+            "key": "/bayannaoer",
+            "title": "巴彦淖尔"
+        },
+        {
+            "key": "/bayan",
+            "title": "巴彦县"
+        },
+        {
+            "key": "/linzhixian",
+            "title": "巴宜区"
+        },
+        {
+            "key": "/bayinguoleng",
+            "title": "巴音郭楞"
+        },
+        {
+            "key": "/bazhong",
+            "title": "巴中"
+        },
+        {
+            "key": "/bazhouqu",
+            "title": "巴州区"
+        },
+        {
+            "key": "/bazhou",
+            "title": "霸州市"
+        },
+        {
+            "key": "/baicheng",
+            "title": "白城"
+        },
+        {
+            "key": "/baihe",
+            "title": "白河县"
+        },
+        {
+            "key": "/bailang",
+            "title": "白朗县"
+        },
+        {
+            "key": "/baisha",
+            "title": "白沙"
+        },
+        {
+            "key": "/citylist?c=B&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "C": [
+        {
+            "key": "/cangxian",
+            "title": "沧县"
+        },
+        {
+            "key": "/changyuanxian",
+            "title": "沧源佤族自治县"
+        },
+        {
+            "key": "/cangzhou",
+            "title": "沧州"
+        },
+        {
+            "key": "/cangnan",
+            "title": "苍南"
+        },
+        {
+            "key": "/caofei",
+            "title": "曹妃甸"
+        },
+        {
+            "key": "/cangwu",
+            "title": "苍梧县"
+        },
+        {
+            "key": "/cangxi",
+            "title": "苍溪县"
+        },
+        {
+            "key": "/caoxian",
+            "title": "曹县"
+        },
+        {
+            "key": "/ceheng",
+            "title": "册亨县"
+        },
+        {
+            "key": "/cele",
+            "title": "策勒县"
+        },
+        {
+            "key": "/cengong",
+            "title": "岑巩县"
+        },
+        {
+            "key": "/cenxi",
+            "title": "岑溪市"
+        },
+        {
+            "key": "/chaling",
+            "title": "茶陵县"
+        },
+        {
+            "key": "/chabuchaer",
+            "title": "察布查尔锡伯自治县"
+        },
+        {
+            "key": "/chayouhouqi",
+            "title": "察哈尔右翼后旗"
+        },
+        {
+            "key": "/chayouqianqi",
+            "title": "察哈尔右翼前旗"
+        },
+        {
+            "key": "/chayouzhongqi",
+            "title": "察哈尔右翼中旗"
+        },
+        {
+            "key": "/chaya",
+            "title": "察雅县"
+        },
+        {
+            "key": "/chayu",
+            "title": "察隅县"
+        },
+        {
+            "key": "/changdudiqu",
+            "title": "昌都市"
+        },
+        {
+            "key": "/citylist?c=C&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "D": [
+        {
+            "key": "/daerhanqi",
+            "title": "达尔罕茂明安联合旗"
+        },
+        {
+            "key": "/dalateqi",
+            "title": "达拉特旗"
+        },
+        {
+            "key": "/dari",
+            "title": "达日县"
+        },
+        {
+            "key": "/dazhou",
+            "title": "达州"
+        },
+        {
+            "key": "/dazi",
+            "title": "达孜县"
+        },
+        {
+            "key": "/daan",
+            "title": "大安市"
+        },
+        {
+            "key": "/dachang",
+            "title": "大厂回族自治县"
+        },
+        {
+            "key": "/dacheng",
+            "title": "大城县"
+        },
+        {
+            "key": "/dafang",
+            "title": "大方县"
+        },
+        {
+            "key": "/dafeng",
+            "title": "大丰区"
+        },
+        {
+            "key": "/daguan",
+            "title": "大关县"
+        },
+        {
+            "key": "/dahua",
+            "title": "大化瑶族自治县"
+        },
+        {
+            "key": "/dalishi",
+            "title": "大理市"
+        },
+        {
+            "key": "/dali",
+            "title": "大理州"
+        },
+        {
+            "key": "/dalixian",
+            "title": "大荔县"
+        },
+        {
+            "key": "/dalian",
+            "title": "大连"
+        },
+        {
+            "key": "/daming",
+            "title": "大名县"
+        },
+        {
+            "key": "/daning",
+            "title": "大宁县"
+        },
+        {
+            "key": "/dapu",
+            "title": "大埔县"
+        },
+        {
+            "key": "/daqing",
+            "title": "大庆"
+        },
+        {
+            "key": "/citylist?c=D&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "E": [
+        {
+            "key": "/ebian",
+            "title": "峨边彝族自治县"
+        },
+        {
+            "key": "/emeishan",
+            "title": "峨眉山市"
+        },
+        {
+            "key": "/eshan",
+            "title": "峨山彝族自治县"
+        },
+        {
+            "key": "/eerguna",
+            "title": "额尔古纳市"
+        },
+        {
+            "key": "/ejinaqi",
+            "title": "额济纳旗"
+        },
+        {
+            "key": "/emin",
+            "title": "额敏县"
+        },
+        {
+            "key": "/eerduosi",
+            "title": "鄂尔多斯"
+        },
+        {
+            "key": "/elunchunqi",
+            "title": "鄂伦春自治旗"
+        },
+        {
+            "key": "/eqi",
+            "title": "鄂托克旗"
+        },
+        {
+            "key": "/eqianqi",
+            "title": "鄂托克前旗"
+        },
+        {
+            "key": "/ewenkeqi",
+            "title": "鄂温克族自治旗"
+        },
+        {
+            "key": "/ezhou",
+            "title": "鄂州"
+        },
+        {
+            "key": "/enping",
+            "title": "恩平市"
+        },
+        {
+            "key": "/enshizhou",
+            "title": "恩施"
+        },
+        {
+            "key": "/enshi",
+            "title": "恩施市"
+        },
+        {
+            "key": "/eryuan",
+            "title": "洱源县"
+        },
+        {
+            "key": "/erlianhaote",
+            "title": "二连浩特市"
+        },
+        {
+            "key": "/citylist?c=E&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "F": [
+        {
+            "key": "/fakun",
+            "title": "法库县"
+        },
+        {
+            "key": "/fancang",
+            "title": "繁昌县"
+        },
+        {
+            "key": "/fanzhi",
+            "title": "繁峙县"
+        },
+        {
+            "key": "/fanxian",
+            "title": "范县"
+        },
+        {
+            "key": "/fangcheng",
+            "title": "方城县"
+        },
+        {
+            "key": "/fangshan",
+            "title": "方山县"
+        },
+        {
+            "key": "/fangchenggang",
+            "title": "防城港"
+        },
+        {
+            "key": "/fangxian",
+            "title": "房县"
+        },
+        {
+            "key": "/feicheng",
+            "title": "肥城市"
+        },
+        {
+            "key": "/feidong",
+            "title": "肥东县"
+        },
+        {
+            "key": "/feixi",
+            "title": "肥西县"
+        },
+        {
+            "key": "/feixiang",
+            "title": "肥乡县"
+        },
+        {
+            "key": "/feixian",
+            "title": "费县"
+        },
+        {
+            "key": "/fenyi",
+            "title": "分宜县"
+        },
+        {
+            "key": "/fenxi",
+            "title": "汾西县"
+        },
+        {
+            "key": "/fengyang",
+            "title": "汾阳市"
+        },
+        {
+            "key": "/fengchengshi",
+            "title": "丰城市"
+        },
+        {
+            "key": "/fengdu",
+            "title": "丰都县"
+        },
+        {
+            "key": "/fengning",
+            "title": "丰宁满族自治县"
+        },
+        {
+            "key": "/fengshun",
+            "title": "丰顺县"
+        },
+        {
+            "key": "/citylist?c=F&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "G": [
+        {
+            "key": "/geer",
+            "title": "噶尔县"
+        },
+        {
+            "key": "/gaize",
+            "title": "改则县"
+        },
+        {
+            "key": "/gaizhou",
+            "title": "盖州市"
+        },
+        {
+            "key": "/gande",
+            "title": "甘德县"
+        },
+        {
+            "key": "/gangu",
+            "title": "甘谷县"
+        },
+        {
+            "key": "/ganluo",
+            "title": "甘洛县"
+        },
+        {
+            "key": "/gannanzhou",
+            "title": "甘南"
+        },
+        {
+            "key": "/gannan",
+            "title": "甘南县"
+        },
+        {
+            "key": "/ganquan",
+            "title": "甘泉县"
+        },
+        {
+            "key": "/ganzixian",
+            "title": "甘孜县"
+        },
+        {
+            "key": "/ganzi",
+            "title": "甘孜州"
+        },
+        {
+            "key": "/ganxian",
+            "title": "赣县"
+        },
+        {
+            "key": "/ganyu",
+            "title": "赣榆区"
+        },
+        {
+            "key": "/ganzhou",
+            "title": "赣州"
+        },
+        {
+            "key": "/gangcha",
+            "title": "刚察县"
+        },
+        {
+            "key": "/gangba",
+            "title": "岗巴县"
+        },
+        {
+            "key": "/gaolan",
+            "title": "皋兰县"
+        },
+        {
+            "key": "/gaoan",
+            "title": "高安市"
+        },
+        {
+            "key": "/gaopaidian",
+            "title": "高碑店市"
+        },
+        {
+            "key": "/tulufan",
+            "title": "高昌区"
+        },
+        {
+            "key": "/citylist?c=G&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "H": [
+        {
+            "key": "/habahe",
+            "title": "哈巴河县"
+        },
+        {
+            "key": "/haerbin",
+            "title": "哈尔滨"
+        },
+        {
+            "key": "/hamidiqu",
+            "title": "哈密地区"
+        },
+        {
+            "key": "/hami",
+            "title": "哈密市"
+        },
+        {
+            "key": "/haian",
+            "title": "海安县"
+        },
+        {
+            "key": "/haibei",
+            "title": "海北"
+        },
+        {
+            "key": "/haicheng",
+            "title": "海城市"
+        },
+        {
+            "key": "/haidong",
+            "title": "海东"
+        },
+        {
+            "key": "/haifeng",
+            "title": "海丰县"
+        },
+        {
+            "key": "/haikou",
+            "title": "海口"
+        },
+        {
+            "key": "/hailin",
+            "title": "海林市"
+        },
+        {
+            "key": "/hailun",
+            "title": "海伦市"
+        },
+        {
+            "key": "/haimen",
+            "title": "海门市"
+        },
+        {
+            "key": "/hainanzhou",
+            "title": "海南州"
+        },
+        {
+            "key": "/haining",
+            "title": "海宁市"
+        },
+        {
+            "key": "/haixi",
+            "title": "海西"
+        },
+        {
+            "key": "/haixing",
+            "title": "海兴县"
+        },
+        {
+            "key": "/haiyan",
+            "title": "海盐县"
+        },
+        {
+            "key": "/haiyanxian",
+            "title": "海晏县"
+        },
+        {
+            "key": "/haiyang",
+            "title": "海阳市"
+        },
+        {
+            "key": "/citylist?c=H&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "I": [
+        {
+            "key": "/ilan",
+            "title": "宜兰"
+        },
+        {
+            "key": "/citylist?c=I&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "J": [
+        {
+            "key": "/jiashi",
+            "title": "伽师县"
+        },
+        {
+            "key": "/jidong",
+            "title": "鸡东县"
+        },
+        {
+            "key": "/jixi",
+            "title": "鸡西"
+        },
+        {
+            "key": "/jizhe",
+            "title": "鸡泽县"
+        },
+        {
+            "key": "/jishishan",
+            "title": "积石山保安族东乡族撒拉族自治县"
+        },
+        {
+            "key": "/keelung",
+            "title": "基隆"
+        },
+        {
+            "key": "/jixixian",
+            "title": "绩溪县"
+        },
+        {
+            "key": "/jian",
+            "title": "吉安"
+        },
+        {
+            "key": "/jianxian",
+            "title": "吉安县"
+        },
+        {
+            "key": "/jilin",
+            "title": "吉林"
+        },
+        {
+            "key": "/jilong",
+            "title": "吉隆县"
+        },
+        {
+            "key": "/jimumai",
+            "title": "吉木乃县"
+        },
+        {
+            "key": "/jimusaer",
+            "title": "吉木萨尔县"
+        },
+        {
+            "key": "/jishou",
+            "title": "吉首市"
+        },
+        {
+            "key": "/jishui",
+            "title": "吉水县"
+        },
+        {
+            "key": "/lfjixian",
+            "title": "吉县"
+        },
+        {
+            "key": "/jianshi",
+            "title": "集安市"
+        },
+        {
+            "key": "/sysjixianxian",
+            "title": "集贤县"
+        },
+        {
+            "key": "/jinan",
+            "title": "济南"
+        },
+        {
+            "key": "/jining",
+            "title": "济宁"
+        },
+        {
+            "key": "/citylist?c=J&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "K": [
+        {
+            "key": "/kaohsiung",
+            "title": "高雄"
+        },
+        {
+            "key": "/keelung",
+            "title": "基隆"
+        },
+        {
+            "key": "/keqinqi",
+            "title": "喀喇沁旗"
+        },
+        {
+            "key": "/kalaqinzuiyi",
+            "title": "喀喇沁左翼蒙古族自治县"
+        },
+        {
+            "key": "/kashidiqu",
+            "title": "喀什地区"
+        },
+        {
+            "key": "/kashi",
+            "title": "喀什市"
+        },
+        {
+            "key": "/changdu",
+            "title": "卡若区"
+        },
+        {
+            "key": "/kaifeng",
+            "title": "开封"
+        },
+        {
+            "key": "/kaihua",
+            "title": "开化县"
+        },
+        {
+            "key": "/kaijian",
+            "title": "开江县"
+        },
+        {
+            "key": "/kailu",
+            "title": "开鲁县"
+        },
+        {
+            "key": "/kaiping",
+            "title": "开平市"
+        },
+        {
+            "key": "/kaixian",
+            "title": "开县"
+        },
+        {
+            "key": "/kaiyang",
+            "title": "开阳县"
+        },
+        {
+            "key": "/kaiyuan",
+            "title": "开原市"
+        },
+        {
+            "key": "/kaiyuanshi",
+            "title": "开远市"
+        },
+        {
+            "key": "/kaili",
+            "title": "凯里市"
+        },
+        {
+            "key": "/kangbao",
+            "title": "康保县"
+        },
+        {
+            "key": "/kangding",
+            "title": "康定市"
+        },
+        {
+            "key": "/kangle",
+            "title": "康乐县"
+        },
+        {
+            "key": "/citylist?c=K&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "L": [
+        {
+            "key": "/lasa",
+            "title": "拉萨"
+        },
+        {
+            "key": "/lazi",
+            "title": "拉孜县"
+        },
+        {
+            "key": "/laian",
+            "title": "来安县"
+        },
+        {
+            "key": "/laibin",
+            "title": "来宾"
+        },
+        {
+            "key": "/laifeng",
+            "title": "来凤县"
+        },
+        {
+            "key": "/laishui",
+            "title": "涞水县"
+        },
+        {
+            "key": "/laiyuan",
+            "title": "涞源县"
+        },
+        {
+            "key": "/laiwu",
+            "title": "莱芜"
+        },
+        {
+            "key": "/laiyang",
+            "title": "莱阳市"
+        },
+        {
+            "key": "/laizhou",
+            "title": "莱州市"
+        },
+        {
+            "key": "/lankao",
+            "title": "兰考县"
+        },
+        {
+            "key": "/lanling",
+            "title": "兰陵县"
+        },
+        {
+            "key": "/lanping",
+            "title": "兰坪白族普米族自治县"
+        },
+        {
+            "key": "/lanxixian",
+            "title": "兰西县"
+        },
+        {
+            "key": "/lanxi",
+            "title": "兰溪市"
+        },
+        {
+            "key": "/lanzhou",
+            "title": "兰州"
+        },
+        {
+            "key": "/langao",
+            "title": "岚皋县"
+        },
+        {
+            "key": "/lanxian",
+            "title": "岚县"
+        },
+        {
+            "key": "/lanshan",
+            "title": "蓝山县"
+        },
+        {
+            "key": "/lantian",
+            "title": "蓝田县"
+        },
+        {
+            "key": "/citylist?c=L&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "M": [
+        {
+            "key": "/macau",
+            "title": "澳门"
+        },
+        {
+            "key": "/macheng",
+            "title": "麻城市"
+        },
+        {
+            "key": "/majian",
+            "title": "麻江县"
+        },
+        {
+            "key": "/malipo",
+            "title": "麻栗坡县"
+        },
+        {
+            "key": "/mayang",
+            "title": "麻阳苗族自治县"
+        },
+        {
+            "key": "/maanshan",
+            "title": "马鞍山"
+        },
+        {
+            "key": "/mabian",
+            "title": "马边彝族自治县"
+        },
+        {
+            "key": "/maerkang",
+            "title": "马尔康区"
+        },
+        {
+            "key": "/maguan",
+            "title": "马关县"
+        },
+        {
+            "key": "/maliu",
+            "title": "马龙县"
+        },
+        {
+            "key": "/mashan",
+            "title": "马山县"
+        },
+        {
+            "key": "/maduo",
+            "title": "玛多县"
+        },
+        {
+            "key": "/manasi",
+            "title": "玛纳斯县"
+        },
+        {
+            "key": "/maqin",
+            "title": "玛沁县"
+        },
+        {
+            "key": "/maqu",
+            "title": "玛曲县"
+        },
+        {
+            "key": "/maigaiti",
+            "title": "麦盖提县"
+        },
+        {
+            "key": "/mancheng",
+            "title": "满城区"
+        },
+        {
+            "key": "/manzhouli",
+            "title": "满洲里市"
+        },
+        {
+            "key": "/mangkang",
+            "title": "芒康县"
+        },
+        {
+            "key": "/luxishi",
+            "title": "芒市"
+        },
+        {
+            "key": "/citylist?c=M&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "N": [
+        {
+            "key": "/neihuang",
+            "title": "内黄县"
+        },
+        {
+            "key": "/neijiang",
+            "title": "内江"
+        },
+        {
+            "key": "/neiqiu",
+            "title": "内丘县"
+        },
+        {
+            "key": "/neixiang",
+            "title": "内乡县"
+        },
+        {
+            "key": "/napo",
+            "title": "那坡县"
+        },
+        {
+            "key": "/naqu",
+            "title": "那曲"
+        },
+        {
+            "key": "/naquxian",
+            "title": "那曲县"
+        },
+        {
+            "key": "/nayong",
+            "title": "纳雍县"
+        },
+        {
+            "key": "/naidong",
+            "title": "乃东区"
+        },
+        {
+            "key": "/naimanqi",
+            "title": "奈曼旗"
+        },
+        {
+            "key": "/nanan",
+            "title": "南安市"
+        },
+        {
+            "key": "/nanao",
+            "title": "南澳县"
+        },
+        {
+            "key": "/nanbu",
+            "title": "南部县"
+        },
+        {
+            "key": "/nanchang",
+            "title": "南昌"
+        },
+        {
+            "key": "/nancheng",
+            "title": "南城县"
+        },
+        {
+            "key": "/nanchong",
+            "title": "南充"
+        },
+        {
+            "key": "/nanchuan",
+            "title": "南川区"
+        },
+        {
+            "key": "/nandaihe",
+            "title": "南戴河"
+        },
+        {
+            "key": "/nandan",
+            "title": "南丹县"
+        },
+        {
+            "key": "/nanfeng",
+            "title": "南丰县"
+        },
+        {
+            "key": "/citylist?c=N&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "P": [
+        {
+            "key": "/panzhihua",
+            "title": "攀枝花"
+        },
+        {
+            "key": "/panjin",
+            "title": "盘锦"
+        },
+        {
+            "key": "/panshan",
+            "title": "盘山县"
+        },
+        {
+            "key": "/panxian",
+            "title": "盘县"
+        },
+        {
+            "key": "/panan",
+            "title": "磐安县"
+        },
+        {
+            "key": "/panshi",
+            "title": "磐石市"
+        },
+        {
+            "key": "/peixian",
+            "title": "沛县"
+        },
+        {
+            "key": "/pengshan",
+            "title": "彭山区"
+        },
+        {
+            "key": "/pengshui",
+            "title": "彭水苗族土家族自治县"
+        },
+        {
+            "key": "/pengyang",
+            "title": "彭阳县"
+        },
+        {
+            "key": "/pengze",
+            "title": "彭泽县"
+        },
+        {
+            "key": "/pengzhou",
+            "title": "彭州市"
+        },
+        {
+            "key": "/pengan",
+            "title": "蓬安县"
+        },
+        {
+            "key": "/penglai",
+            "title": "蓬莱市"
+        },
+        {
+            "key": "/pengxi",
+            "title": "蓬溪县"
+        },
+        {
+            "key": "/Penghu",
+            "title": "澎湖"
+        },
+        {
+            "key": "/pizhou",
+            "title": "邳州市"
+        },
+        {
+            "key": "/pishan",
+            "title": "皮山县"
+        },
+        {
+            "key": "/pixian",
+            "title": "郫县"
+        },
+        {
+            "key": "/pianguan",
+            "title": "偏关县"
+        },
+        {
+            "key": "/citylist?c=P&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "Q": [
+        {
+            "key": "/jianwei",
+            "title": "犍为县"
+        },
+        {
+            "key": "/qitaihe",
+            "title": "七台河"
+        },
+        {
+            "key": "/bijie",
+            "title": "七星关区"
+        },
+        {
+            "key": "/qixia",
+            "title": "栖霞市"
+        },
+        {
+            "key": "/qidongxian",
+            "title": "祁东县"
+        },
+        {
+            "key": "/qilian",
+            "title": "祁连县"
+        },
+        {
+            "key": "/qimen",
+            "title": "祁门县"
+        },
+        {
+            "key": "/qixian",
+            "title": "祁县"
+        },
+        {
+            "key": "/qiyang",
+            "title": "祁阳县"
+        },
+        {
+            "key": "/qihe",
+            "title": "齐河县"
+        },
+        {
+            "key": "/qiqihaer",
+            "title": "齐齐哈尔"
+        },
+        {
+            "key": "/qishan",
+            "title": "岐山县"
+        },
+        {
+            "key": "/qitai",
+            "title": "奇台县"
+        },
+        {
+            "key": "/hbqixian",
+            "title": "淇县"
+        },
+        {
+            "key": "/qichun",
+            "title": "蕲春县"
+        },
+        {
+            "key": "/qidong",
+            "title": "启东市"
+        },
+        {
+            "key": "/kfqixian",
+            "title": "杞县"
+        },
+        {
+            "key": "/qiandaohu",
+            "title": "千岛湖"
+        },
+        {
+            "key": "/qianyang",
+            "title": "千阳县"
+        },
+        {
+            "key": "/qianan",
+            "title": "迁安市"
+        },
+        {
+            "key": "/citylist?c=Q&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "R": [
+        {
+            "key": "/riyuetan",
+            "title": "南投"
+        },
+        {
+            "key": "/rangtang",
+            "title": "壤塘县"
+        },
+        {
+            "key": "/raohe",
+            "title": "饶河县"
+        },
+        {
+            "key": "/raoping",
+            "title": "饶平县"
+        },
+        {
+            "key": "/raoyang",
+            "title": "饶阳县"
+        },
+        {
+            "key": "/renbu",
+            "title": "仁布县"
+        },
+        {
+            "key": "/renhua",
+            "title": "仁化县"
+        },
+        {
+            "key": "/renhuai",
+            "title": "仁怀市"
+        },
+        {
+            "key": "/renshou",
+            "title": "仁寿县"
+        },
+        {
+            "key": "/renqiu",
+            "title": "任丘市"
+        },
+        {
+            "key": "/renxian",
+            "title": "任县"
+        },
+        {
+            "key": "/rikazediqu",
+            "title": "日喀则"
+        },
+        {
+            "key": "/ritou",
+            "title": "日土县"
+        },
+        {
+            "key": "/rizhao",
+            "title": "日照"
+        },
+        {
+            "key": "/rongcang",
+            "title": "荣昌区"
+        },
+        {
+            "key": "/rongcheng",
+            "title": "荣成"
+        },
+        {
+            "key": "/rongxianxian",
+            "title": "荣县"
+        },
+        {
+            "key": "/rongchengxian",
+            "title": "容城县"
+        },
+        {
+            "key": "/rongxian",
+            "title": "容县"
+        },
+        {
+            "key": "/rongjian",
+            "title": "榕江县"
+        },
+        {
+            "key": "/citylist?c=R&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "S": [
+        {
+            "key": "/danxian",
+            "title": "单县"
+        },
+        {
+            "key": "/sagaxian",
+            "title": "萨嘎县"
+        },
+        {
+            "key": "/sajia",
+            "title": "萨迦县"
+        },
+        {
+            "key": "/sandu",
+            "title": "三都水族自治县"
+        },
+        {
+            "key": "/sanhe",
+            "title": "三河市"
+        },
+        {
+            "key": "/sanjiang",
+            "title": "三江侗族自治县"
+        },
+        {
+            "key": "/sanmenxia",
+            "title": "三门峡"
+        },
+        {
+            "key": "/sanmen",
+            "title": "三门县"
+        },
+        {
+            "key": "/sanming",
+            "title": "三明"
+        },
+        {
+            "key": "/sanqingshan",
+            "title": "三清山"
+        },
+        {
+            "key": "/sansha",
+            "title": "三沙"
+        },
+        {
+            "key": "/sansui",
+            "title": "三穗县"
+        },
+        {
+            "key": "/santai",
+            "title": "三台县"
+        },
+        {
+            "key": "/sanxia",
+            "title": "三峡"
+        },
+        {
+            "key": "/sanya",
+            "title": "三亚"
+        },
+        {
+            "key": "/sanyuan",
+            "title": "三原县"
+        },
+        {
+            "key": "/sangri",
+            "title": "桑日县"
+        },
+        {
+            "key": "/sangzhi",
+            "title": "桑植县"
+        },
+        {
+            "key": "/rikaze",
+            "title": "桑珠孜区"
+        },
+        {
+            "key": "/seda",
+            "title": "色达县"
+        },
+        {
+            "key": "/citylist?c=S&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "T": [
+        {
+            "key": "/tachengdiqu",
+            "title": "塔城地区"
+        },
+        {
+            "key": "/tacheng",
+            "title": "塔城市"
+        },
+        {
+            "key": "/tahe",
+            "title": "塔河县"
+        },
+        {
+            "key": "/tashikuergan",
+            "title": "塔什库尔干塔吉克自治县"
+        },
+        {
+            "key": "/taianxian",
+            "title": "台安县"
+        },
+        {
+            "key": "/taipei",
+            "title": "台北"
+        },
+        {
+            "key": "/taitung",
+            "title": "台东"
+        },
+        {
+            "key": "/taijian",
+            "title": "台江县"
+        },
+        {
+            "key": "/tainan",
+            "title": "台南"
+        },
+        {
+            "key": "/taiqian",
+            "title": "台前县"
+        },
+        {
+            "key": "/taishan",
+            "title": "台山市"
+        },
+        {
+            "key": "/taiwan",
+            "title": "台湾"
+        },
+        {
+            "key": "/taichung",
+            "title": "台中"
+        },
+        {
+            "key": "/zhejiangtaizhou",
+            "title": "台州"
+        },
+        {
+            "key": "/taibai",
+            "title": "太白县"
+        },
+        {
+            "key": "/taicang",
+            "title": "太仓"
+        },
+        {
+            "key": "/taigu",
+            "title": "太谷县"
+        },
+        {
+            "key": "/taihe",
+            "title": "太和县"
+        },
+        {
+            "key": "/taihu",
+            "title": "太湖县"
+        },
+        {
+            "key": "/taikang",
+            "title": "太康县"
+        },
+        {
+            "key": "/citylist?c=T&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "W": [
+        {
+            "key": "/wafangdian",
+            "title": "瓦房店市"
+        },
+        {
+            "key": "/wanan",
+            "title": "万安县"
+        },
+        {
+            "key": "/wannian",
+            "title": "万年县"
+        },
+        {
+            "key": "/wanning",
+            "title": "万宁"
+        },
+        {
+            "key": "/wanquan",
+            "title": "万全县"
+        },
+        {
+            "key": "/wanrongxian",
+            "title": "万荣县"
+        },
+        {
+            "key": "/wanyuan",
+            "title": "万源市"
+        },
+        {
+            "key": "/wanzai",
+            "title": "万载县"
+        },
+        {
+            "key": "/wanzhou",
+            "title": "万州区"
+        },
+        {
+            "key": "/wangqing",
+            "title": "汪清县"
+        },
+        {
+            "key": "/wangcang",
+            "title": "旺苍县"
+        },
+        {
+            "key": "/wangdu",
+            "title": "望都县"
+        },
+        {
+            "key": "/wangjian",
+            "title": "望江县"
+        },
+        {
+            "key": "/wangkui",
+            "title": "望奎县"
+        },
+        {
+            "key": "/wangmo",
+            "title": "望谟县"
+        },
+        {
+            "key": "/weihai",
+            "title": "威海"
+        },
+        {
+            "key": "/weining",
+            "title": "威宁彝族回族苗族自治县"
+        },
+        {
+            "key": "/xtweixian",
+            "title": "威县"
+        },
+        {
+            "key": "/weixin",
+            "title": "威信县"
+        },
+        {
+            "key": "/weiyuan",
+            "title": "威远县"
+        },
+        {
+            "key": "/citylist?c=W&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "X": [
+        {
+            "key": "/xunxian",
+            "title": "浚县"
+        },
+        {
+            "key": "/xian",
+            "title": "西安"
+        },
+        {
+            "key": "/xichang",
+            "title": "西昌市"
+        },
+        {
+            "key": "/xichong",
+            "title": "西充县"
+        },
+        {
+            "key": "/xichou",
+            "title": "西畴县"
+        },
+        {
+            "key": "/xidi",
+            "title": "西递"
+        },
+        {
+            "key": "/xifeng",
+            "title": "西丰县"
+        },
+        {
+            "key": "/xihe",
+            "title": "西和县"
+        },
+        {
+            "key": "/xihua",
+            "title": "西华县"
+        },
+        {
+            "key": "/xiji",
+            "title": "西吉县"
+        },
+        {
+            "key": "/xijiangqianhu",
+            "title": "西江千户苗寨"
+        },
+        {
+            "key": "/xilin",
+            "title": "西林县"
+        },
+        {
+            "key": "/xilingxueshan",
+            "title": "西岭雪山"
+        },
+        {
+            "key": "/ximeng",
+            "title": "西盟佤族自治县"
+        },
+        {
+            "key": "/xining",
+            "title": "西宁"
+        },
+        {
+            "key": "/xiping",
+            "title": "西平县"
+        },
+        {
+            "key": "/xishuangbanna",
+            "title": "西双版纳"
+        },
+        {
+            "key": "/xitang",
+            "title": "西塘"
+        },
+        {
+            "key": "/xiwuqinqi",
+            "title": "西乌珠穆沁旗"
+        },
+        {
+            "key": "/xixia",
+            "title": "西峡县"
+        },
+        {
+            "key": "/citylist?c=X&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "Y": [
+        {
+            "key": "/yueqing",
+            "title": "乐清"
+        },
+        {
+            "key": "/weili",
+            "title": "尉犁县"
+        },
+        {
+            "key": "/weixian",
+            "title": "蔚县"
+        },
+        {
+            "key": "/yakeshi",
+            "title": "牙克石市"
+        },
+        {
+            "key": "/yaan",
+            "title": "雅安"
+        },
+        {
+            "key": "/yajian",
+            "title": "雅江县"
+        },
+        {
+            "key": "/yabuli",
+            "title": "亚布力"
+        },
+        {
+            "key": "/yadong",
+            "title": "亚东县"
+        },
+        {
+            "key": "/yantai",
+            "title": "烟台"
+        },
+        {
+            "key": "/yanqi",
+            "title": "焉耆回族自治县"
+        },
+        {
+            "key": "/yanling",
+            "title": "鄢陵县"
+        },
+        {
+            "key": "/yanan",
+            "title": "延安"
+        },
+        {
+            "key": "/yanbian",
+            "title": "延边"
+        },
+        {
+            "key": "/yanchang",
+            "title": "延长县"
+        },
+        {
+            "key": "/yanchuan",
+            "title": "延川县"
+        },
+        {
+            "key": "/yanji",
+            "title": "延吉市"
+        },
+        {
+            "key": "/yanjin",
+            "title": "延津县"
+        },
+        {
+            "key": "/yanqing",
+            "title": "延庆区"
+        },
+        {
+            "key": "/yanhe",
+            "title": "沿河土家族自治县"
+        },
+        {
+            "key": "/yanlingxian",
+            "title": "炎陵县"
+        },
+        {
+            "key": "/citylist?c=Y&returl=&type=0",
+            "title": "更多"
+        }
+    ],
+    "Z": [
+        {
+            "key": "/zunyixian",
+            "title": "播州区"
+        },
+        {
+            "key": "/zongyang",
+            "title": "枞阳县"
+        },
+        {
+            "key": "/zaduo",
+            "title": "杂多县"
+        },
+        {
+            "key": "/zanhuang",
+            "title": "赞皇县"
+        },
+        {
+            "key": "/zaoqiang",
+            "title": "枣强县"
+        },
+        {
+            "key": "/zaoyang",
+            "title": "枣阳市"
+        },
+        {
+            "key": "/zaozhuang",
+            "title": "枣庄"
+        },
+        {
+            "key": "/zekun",
+            "title": "泽库县"
+        },
+        {
+            "key": "/zepu",
+            "title": "泽普县"
+        },
+        {
+            "key": "/zhezhou",
+            "title": "泽州县"
+        },
+        {
+            "key": "/zhalaiteqi",
+            "title": "扎赉特旗"
+        },
+        {
+            "key": "/zalantun",
+            "title": "扎兰屯市"
+        },
+        {
+            "key": "/zhaluteqi",
+            "title": "扎鲁特旗"
+        },
+        {
+            "key": "/zhanang",
+            "title": "扎囊县"
+        },
+        {
+            "key": "/zhada",
+            "title": "札达县"
+        },
+        {
+            "key": "/zhanhua",
+            "title": "沾化区"
+        },
+        {
+            "key": "/zhanyi",
+            "title": "沾益区"
+        },
+        {
+            "key": "/zhanjiang",
+            "title": "湛江"
+        },
+        {
+            "key": "/zhangbei",
+            "title": "张北县"
+        },
+        {
+            "key": "/zhangjiachuan",
+            "title": "张家川回族自治县"
+        },
+        {
+            "key": "/citylist?c=Z&returl=&type=0",
+            "title": "更多"
+        }
+    ]
+}

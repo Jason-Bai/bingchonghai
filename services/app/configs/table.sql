@@ -166,6 +166,7 @@ DROP TABLE IF EXISTS `policy`;
 CREATE TABLE `policy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
   `content` TEXT NULL,
   `type` enum('subsidy', 'notice') DEFAULT 'notice',
   `isPublish` enum('yes','no') DEFAULT 'no',

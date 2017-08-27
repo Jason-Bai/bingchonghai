@@ -23,5 +23,5 @@ U.rest
      U.logger.error(error);
      process.exit();
    }
-   U.logger.info(`Service started at: ${new Date()}`);
+   U.logger.info(`Service started at: ${new Date()} on ${config.service.port} port`);
  });

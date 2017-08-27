@@ -1,0 +1,37 @@
+[{
+	"key": "beijing",
+	"title": "北京"
+}, {
+	"key": "shanghai",
+	"title": "上海"
+}, {
+	"key": "hangzhou",
+	"title": "杭州"
+}, {
+	"key": "guangzhou",
+	"title": "广州"
+}, {
+	"key": "suzhou",
+	"title": "苏州"
+}, {
+	"key": "shenzhen",
+	"title": "深圳"
+}, {
+	"key": "nanjing",
+	"title": "南京"
+}, {
+	"key": "tianjin",
+	"title": "天津"
+}, {
+	"key": "chongqinq",
+	"title": "重庆"
+}, {
+	"key": "xiamen",
+	"title": "厦门"
+}, {
+	"key": "wuhan",
+	"title": "武汉"
+}, {
+	"key": "xian",
+	"title": "西安"
+}]
